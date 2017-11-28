@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 
 const corsOptions = {
   "origin": "http://localhost:3000",
-  "methods": "GET, HEAD, PUT, PATCH, POST, DELETE",[]
+  "methods": "GET, HEAD, PUT, PATCH, POST, DELETE",
   "preflightContinue": true,
   "optionsSuccessStatus": 204,
   "credentials": true // enable set cookie
