@@ -16,9 +16,9 @@
 
 # Scope
 
-	Helpful in learning English
+	Helpful in learning English vocabulary
 
-	Could used while writing/making notes, preparing speech.
+	Could be used while writing/making notes, preparing speech.
 
 
 # Tools
