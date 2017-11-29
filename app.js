@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const dotenv = require('dotenv').config();
 mongoose.Promise = global.Promise;
 
 // mongoose.connect()
@@ -16,6 +18,9 @@ const corsOptions = {
 
 const app = express();
 
+// static server
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
@@ -26,6 +31,6 @@ app.get('/test', (req, res) => {
   res.json({ msg: 'online' });
 });
 
-app.listen(process.env.PORT || 3030, () => {
-  console.log('server running on port 3030');
+app.listen(process.env.PORT, () => {
+  console.log(`server running on port ${process.env.PORT}`);
 });
