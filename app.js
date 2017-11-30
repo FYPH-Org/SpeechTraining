@@ -70,7 +70,7 @@ app.post('/dbtest', (req, res) => {
 // commented out for mongoose stuff
 mongoose.Promise = global.Promise;
 const connect = mongoose.connect(
-    'mongodb://localhost/User', 
+    'mongodb://localhost/User',
     { useMongoClient: true }
 );
 
