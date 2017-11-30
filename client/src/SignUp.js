@@ -44,7 +44,7 @@ class SignUp extends Component {
             onChange={event => this.setState({password: event.target.value})}
           />
           <button
-            /* className="btn btn-primary" */
+            className="btn btn-primary"
             type="button"
             onClick={() => this.signUp()}
           >
