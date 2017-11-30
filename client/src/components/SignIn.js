@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { firebaseApp } from './firebase';
+import { Link, Redirect } from 'react-router-dom';
+import { firebaseApp } from '../firebase';
 import ReactDOM from 'react-dom';
 
-class SignUp extends Component {
+class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,10 +15,18 @@ class SignUp extends Component {
     }
   }
 
-  signUp() {
+  signIn() {
     console.log('this.state', this.state);
     const { email, password } = this.state;
-    firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+    firebaseApp.auth().signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        console.log('this is the user:', user);
+        this.setState({
+          email: "",
+          password: ""
+        });
+        this.props.history.push("/about")
+      })
       .catch(error => {
         this.setState({error})
       })
@@ -27,11 +35,12 @@ class SignUp extends Component {
   render() {
     return (
       <div className="form-inline" style={{margin: '5%'}}>
-        <h2>Sign Up</h2>
+        <h2>Sign In</h2>
         <div className="form-group">
           <input
             className="form-control"
             type="text"
+            value={this.state.email}
             style={{marginRight: '5px'}}
             placeholder="email"
             onChange={event => this.setState({email: event.target.value})}
@@ -39,6 +48,7 @@ class SignUp extends Component {
           <input
             className="form-control"
             type="password"
+            value={this.state.password}
             style={{marginRight: '5px'}}
             placeholder="password"
             onChange={event => this.setState({password: event.target.value})}
@@ -46,16 +56,16 @@ class SignUp extends Component {
           <button
             className="btn btn-primary"
             type="button"
-            onClick={() => this.signUp()}
+            onClick={() => this.signIn()}
           >
-            Sign Up
+            Sign In
           </button>
         </div>
         <div>{this.state.error.message}</div>
-        <div><Link to={'/signin'}>Already a user? Sign in instead</Link></div>
+        <div><Link to={'/signup'}>Sign up instead</Link></div>
       </div>
     )
   }
 }
 
-export default SignUp;
+export default SignIn;
