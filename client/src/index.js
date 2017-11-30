@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router , Route , BrowserHistory } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { firebaseApp } from './firebase';
 import './index.css';
 
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+
 
 firebaseApp.auth().onAuthStateChanged(user => {
   if (user) {
@@ -19,9 +18,7 @@ firebaseApp.auth().onAuthStateChanged(user => {
 
 
 ReactDOM.render(
-  <Router path="/" history={BrowserHistory}>
-    <Route path="/" exact component={App} />
-    <Route path="/signin" component={SignIn} />
-    <Route path="/signup" component={SignUp} />
+  <Router>
+    <App/>
   </Router>, document.getElementById('root'));
 
