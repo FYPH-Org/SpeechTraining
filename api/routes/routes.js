@@ -7,7 +7,13 @@ const routes = (server) => {
 
   // app.com/api/test
   apiRoutes.route('/test')
-    .get(speechAnalysisControllers.test)
+    .get(speechAnalysisControllers.test);
+
+
+
+  // db test route
+  apiRoutes.route('/dbtest')
+  .post(speechAnalysisControllers.dbtest);
 
 
   server.use('/api', apiRoutes);

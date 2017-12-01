@@ -25,34 +25,35 @@ const test = (req, res) => {
 };
 
 
-// app.post('/dbtest', (req, res) => {
-//   const { Username, email, analysis } = req.body;
-//   if (!Username) {
-//     res.status(STATUS_USER_ERROR);
-//     res.json({ error: 'Missing required Username' });
-//     return;
-//   }
-//   if (!analysis) {
-//     res.status(STATUS_USER_ERROR);
-//     res.json({ error: 'Missing required analysis' });
-//     return;
-//   }
-//   if (!email) {
-//     res.status(STATUS_USER_ERROR);
-//     res.json({ error: 'Missing email' });
-//     return;
-//   }
-//   const newUser = new User({ Username, email, analysis });
-//   newUser.save((err) => {
-//     if (err) {
-//       res.status(STATUS_SERVER_ERROR);
-//       res.json({ error: 'error' });
-//       return;
-//     }
-//     res.json(newUser);
-//   });
-// });
+const dbtest = (req, res) => {
+  const { Username, email, analysis } = req.body;
+  if (!Username) {
+    res.status(STATUS_USER_ERROR);
+    res.json({ error: 'Missing required Username' });
+    return;
+  }
+  if (!analysis) {
+    res.status(STATUS_USER_ERROR);
+    res.json({ error: 'Missing required analysis' });
+    return;
+  }
+  if (!email) {
+    res.status(STATUS_USER_ERROR);
+    res.json({ error: 'Missing email' });
+    return;
+  }
+  const newUser = new User({ Username, email, analysis });
+  newUser.save((err) => {
+    if (err) {
+      res.status(STATUS_SERVER_ERROR);
+      res.json({ error: 'error' });
+      return;
+    }
+    res.json(newUser);
+  });
+}
 
 module.exports = {
   test,
+  dbtest,
 };
