@@ -11,9 +11,14 @@
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "mongoose": "^4.13.5"
+    "mongoose": "^4.13.5",
+    "nodemon": "^1.12.1"
   },
-  "scripts" : {
-    "start": "nodemon app.js"
+  "scripts": {
+    "start": "nodemon app.js",
+    "landing": "nodemon landingserver.js"
+  },
+  "engines": {
+    "node": "8.0.0"
   }
 }
