@@ -2,7 +2,7 @@ const User = require('../models/userModel');
 const dotenv = require('dotenv');
 
 const SERVER_USER_ERROR = 422;
-
+//test comment
 // helper function to send errors
 const sendUserError = (err, res) => {
   res.status(SERVER_USER_ERROR);
