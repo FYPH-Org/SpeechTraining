@@ -19,7 +19,7 @@ const routes = (server) => {
 
   // Sentiment
   apiRoutes.route('/sentiment')
-    .get(speechAnalysisControllers.sentiment);
+    .post(speechAnalysisControllers.sentiment);
 
 
   server.use('/api', apiRoutes);
