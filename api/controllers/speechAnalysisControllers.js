@@ -60,7 +60,8 @@ const dbtest = (req, res) => {
 }
 
 const sentiment = (req, res) => {
-  const text = 'this is overwhelmingly positive';
+  const { text } = req.body;
+  if (!text) return sendUserError('Please provide some text', res);
 
   const document = {
     content: text,
@@ -72,13 +73,19 @@ const sentiment = (req, res) => {
     .analyzeSentiment({document: document})
     .then(results => {
       const sentiment = results[0].documentSentiment;
+      const info = {
+        text,
+        sentimentScore: sentiment.score,
+        sentimentMagnitute: sentiment.magnitude,
+      };
+      res.json(info);
 
-      console.log(`Text: ${text}`);
-      console.log(`Sentiment score: ${sentiment.score}`);
-      console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+      // console.log(`Text: ${text}`);
+      // console.log(`Sentiment score: ${sentiment.score}`);
+      // console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
     })
     .catch(err => {
-      console.error('ERROR:', err);
+      sendUserError('there was an error in the server, try again.', res);
     });
 };
 
