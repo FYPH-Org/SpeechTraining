@@ -14,9 +14,7 @@ class Demo extends Component {
     this.listen = this.listen.bind(this);
   }
 
-  listen(event) {
-    event.preventDefault();
-    recognition.start();
+  componentDidMount() {
     recognition.addEventListener('result', (e) => {
       let last = e.results.length - 1;
       let text = e.results[last][0].transcript;
@@ -24,7 +22,12 @@ class Demo extends Component {
       console.log('Confidence: ' + e.results[0][0].confidence);
       console.log('results: ', e.results);
       this.setState({ text });
-    });
+    } );
+  }
+
+  listen(event) {
+    event.preventDefault();
+    recognition.start();
   }
 
   render() {
