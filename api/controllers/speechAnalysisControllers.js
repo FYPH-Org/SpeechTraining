@@ -1,5 +1,11 @@
 const User = require('../models/userModel');
 const dotenv = require('dotenv');
+const language = require('@google-cloud/language');
+
+// Instantiates a client
+const client = new language.LanguageServiceClient({
+  keyFilename: './google.json',
+});
 
 const SERVER_USER_ERROR = 422;
 //test comment
@@ -53,7 +59,31 @@ const dbtest = (req, res) => {
   });
 }
 
+const sentiment = (req, res) => {
+  const text = 'this is overwhelmingly positive';
+
+  const document = {
+    content: text,
+    type: 'PLAIN_TEXT',
+  };
+
+  // Detects the sentiment of the text
+  client
+    .analyzeSentiment({document: document})
+    .then(results => {
+      const sentiment = results[0].documentSentiment;
+
+      console.log(`Text: ${text}`);
+      console.log(`Sentiment score: ${sentiment.score}`);
+      console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+    })
+    .catch(err => {
+      console.error('ERROR:', err);
+    });
+};
+
 module.exports = {
   test,
   dbtest,
+  sentiment,
 };
