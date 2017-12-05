@@ -18,8 +18,5 @@
   "scripts": {
     "start": "nodemon app.js",
     "landing": "nodemon landingserver.js"
-  },
-  "engines": {
-    "node": "8.0.0"
   }
 }
