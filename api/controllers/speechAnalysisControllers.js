@@ -82,6 +82,14 @@ const sentiment = (req, res) => {
       info.text = text;
       info.sentimentScore = sentiment.score;
       info.sentimentMagnitude = sentiment.magnitude;
+
+      client
+        .analyzeSyntax({ document: document })
+        .then(results => {
+          const syntax = results[0].documentSentiment;
+          info.results = results;
+          res.json(info);
+        })
       // res.json(info);
 
       // console.log(`Text: ${text}`);
@@ -91,17 +99,6 @@ const sentiment = (req, res) => {
     .catch(err => {
       sendUserError('there was an error in the server1, try again.', res);
     });
-
-    client
-      .analyzeSyntax({document: document})
-      .then(results => {
-        const syntax = results[0].documentSentiment;
-        info.results = results;
-        res.json(info);
-      })
-      .catch(err => {
-        sendUserError('there was an error in the server, try again.', res);
-      });
 
 };
 

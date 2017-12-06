@@ -39,9 +39,9 @@ class Demo extends Component {
   analyze(event) {
     event.preventDefault();
     const { text } = this.state;
-    return axios.post('http://localhost:4000/api/sentiment', { text }) //retun was missing
+    axios.post('http://localhost:4000/api/sentiment', { text }) //retun was missing
       .then((data) => {
-        console.log('data: ', data);
+        console.log('data: ', data.data);
         let { sentimentMagnitude, sentimentScore} = data.data
         const newScore = getScore(sentimentScore);
         this.setState({ sentimentMagnitude, sentimentScore, newScore });
