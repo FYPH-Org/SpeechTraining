@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+const axios = require('axios');
+const { getScore } = require('./helpers/helper');
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -10,8 +12,11 @@ class Demo extends Component {
     super(props);
     this.state = {
       text: '',
+      sentimentScore: '',
+      sentimentMagnitude: '',
     };
     this.listen = this.listen.bind(this);
+    this.analyze = this.analyze.bind(this);
   }
 
   componentDidMount() {
@@ -28,13 +33,32 @@ class Demo extends Component {
   listen(event) {
     event.preventDefault();
     recognition.start();
+    console.log('listening');
+  }
+
+  analyze(event) {
+    event.preventDefault();
+    const { text } = this.state;
+    axios.post('http://localhost:4000/api/sentiment', { text })
+      .then((data) => {
+        console.log('data: ', data);
+        let { sentimentMagnitude, sentimentScore} = data.data
+        const newScore = getScore(sentimentScore);
+        this.setState({ sentimentMagnitude, sentimentScore, newScore });
+
+      })
+      .catch((err) => console.log('ther was an error: ', err));
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.listen}>Talk</button>
+        <button className='btn btn-primary' onClick={this.listen}>Talk</button>
         <p>{this.state.text}</p>
+        <button className='btn btn-primary' onClick={this.analyze}>analyze</button>
+        <p>{this.state.sentimentScore}</p>
+        <p>{this.state.sentimentMagnitude}</p>
+        <p>{this.state.newScore}</p>
       </div>
     );
   }
