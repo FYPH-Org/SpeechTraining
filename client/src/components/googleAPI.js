@@ -39,7 +39,7 @@ class Demo extends Component {
   analyze(event) {
     event.preventDefault();
     const { text } = this.state;
-    axios.post('http://localhost:4000/api/sentiment', { text })
+    return axios.post('http://localhost:4000/api/sentiment', { text }) //retun was missing
       .then((data) => {
         console.log('data: ', data);
         let { sentimentMagnitude, sentimentScore} = data.data
@@ -47,7 +47,7 @@ class Demo extends Component {
         this.setState({ sentimentMagnitude, sentimentScore, newScore });
 
       })
-      .catch((err) => console.log('ther was an error: ', err));
+      .catch((err) => console.log('there was an error: ', err));
   }
 
   render() {
