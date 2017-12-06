@@ -60,6 +60,7 @@ const dbtest = (req, res) => {
 }
 
 const sentiment = (req, res) => {
+  const info = {};
   const { text } = req.body;
   if (!text) return sendUserError('Please provide some text', res);
 
@@ -73,20 +74,35 @@ const sentiment = (req, res) => {
     .analyzeSentiment({document: document})
     .then(results => {
       const sentiment = results[0].documentSentiment;
-      const info = {
-        text,
-        sentimentScore: sentiment.score,
-        sentimentMagnitute: sentiment.magnitude,
-      };
-      res.json(info);
+      // info = {
+      //   text,
+      //   sentimentScore: sentiment.score,
+      //   sentimentMagnitude: sentiment.magnitude,
+      // };
+      info.text = text;
+      info.sentimentScore = sentiment.score;
+      info.sentimentMagnitude = sentiment.magnitude;
+      // res.json(info);
 
       // console.log(`Text: ${text}`);
       // console.log(`Sentiment score: ${sentiment.score}`);
       // console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
     })
     .catch(err => {
-      sendUserError('there was an error in the server, try again.', res);
+      sendUserError('there was an error in the server1, try again.', res);
     });
+
+    client
+      .analyzeSyntax({document: document})
+      .then(results => {
+        const syntax = results[0].documentSentiment;
+        info.results = results;
+        res.json(info);
+      })
+      .catch(err => {
+        sendUserError('there was an error in the server, try again.', res);
+      });
+
 };
 
 module.exports = {
