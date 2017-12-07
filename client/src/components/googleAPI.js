@@ -31,9 +31,10 @@ class Demo extends Component {
     recognition.addEventListener('result', (e) => {
       let last = e.results.length - 1;
       let text = e.results[last][0].transcript;
-      console.log('text: ', text);
+      text =  text.charAt(0).toUpperCase() + text.substring(1);
+      console.log('Text: ', text);
       console.log('Confidence: ' + e.results[0][0].confidence);
-      console.log('results: ', e.results);
+      console.log('Results: ', e.results);
       this.setState({ text });
     } );
   }
@@ -79,12 +80,27 @@ class Demo extends Component {
       text: this.state.text,
     }).then( (res) => {
       let grammarAnalysis = JSON.stringify(res.errors);
+      const regex = /\{|\}|(.offset....|.length....|.id.............|\[|])/g;
+      const str = grammarAnalysis
+      const subst = ``;
+      
+      // The substituted value will be contained in the result variable
+      const result = str.replace(regex, subst).trim();
+      // console.log(result);
+      // console.log(result.length)
+      // const result1 = result.split('');
+      // console.log(result1);
+      
+      var newTest = JSON.stringify(result.replace(/,/g, ''));
+
+      console.log('this is the newTest', newTest);
       // console.log(grammarAnalysis);
       // console.log(res.errors);
-      this.setState({ grammarAnalysis });
-      // console.log(this.state.grammarAnalysis);
+      this.setState({ newTest });
+      // console.log(this.state.newTest);
       // console.log(res.errors);
       for (const error of res.errors) {
+        console.log(error);
         console.log('Bad: %s. Better: %s', error.bad, error.better.join(', '));
       }
     });
@@ -100,7 +116,7 @@ class Demo extends Component {
         <p>{this.state.sentimentMagnitude}</p>
         <p>{this.state.newScore}</p>
         <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
-        <p>{this.state.grammarAnalysis}</p>
+        <p>{this.state.newTest}</p>
       </div>
     );
   }
