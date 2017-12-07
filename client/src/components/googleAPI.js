@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 const axios = require('axios');
-const { getScore } = require('./helpers/helper');
+const { getScore, textPlus } = require('./helpers/helper');
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -17,6 +17,7 @@ class Demo extends Component {
     };
     this.listen = this.listen.bind(this);
     this.analyze = this.analyze.bind(this);
+    this.grammar = this.grammar.bind(this);
   }
 
   componentDidMount() {
@@ -50,6 +51,23 @@ class Demo extends Component {
       .catch((err) => console.log('there was an error: ', err));
   }
 
+  grammar(event) {
+    event.preventDefault();
+    const { text } = this.state;
+    const newText = textPlus(text);
+    axios.post(`https://api.textgears.com/check.php?${newText}&key=SLWs2uA5eFKaj3e6`)
+      .then((data) => {
+        let {result, errors } = data.data
+        this.setState({ result, errors });
+        console.log(result);
+        console.log(errors);
+        console.log('grammar api:',data)
+        
+      })
+      .catch((err) => console.log('There was an error:', err));
+
+  }
+
   render() {
     return (
       <div>
@@ -59,6 +77,8 @@ class Demo extends Component {
         <p>{this.state.sentimentScore}</p>
         <p>{this.state.sentimentMagnitude}</p>
         <p>{this.state.newScore}</p>
+        <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
+        <p>{this.state.errors}</p>
       </div>
     );
   }

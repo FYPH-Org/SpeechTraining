@@ -1,4 +1,4 @@
-export const getScore = score => {
+export const getScore = (score) => {
   console.log('this is the score: ', score);
   switch (true) {
     case (score >= 0.4):
@@ -14,3 +14,10 @@ export const getScore = score => {
       return "this is a very negative statement";
   }
 };
+
+
+export const textPlus = (text) => {
+  console.log(typeof text);
+  console.log(text.toString().split(' ').join('+'));
+  return text.toString().split(' ').join('+');
+}
