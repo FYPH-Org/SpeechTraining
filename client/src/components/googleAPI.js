@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 
 // textgears package
 import textgears from 'textgears';
-// 
+//
+import Table from './Table';
 
 const axios = require('axios');
 const { getScore, textPlus } = require('./helpers/helper');
+
 
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -21,6 +23,7 @@ class Demo extends Component {
       sentimentScore: '',
       sentimentMagnitude: '',
       grammarAnalysis: '',
+      allErrors: null,
     };
     this.listen = this.listen.bind(this);
     this.analyze = this.analyze.bind(this);
@@ -61,62 +64,75 @@ class Demo extends Component {
 
   grammar(event) {
     event.preventDefault();
-    // const { text } = this.state;
-    // const newText = textPlus(text);
-    // axios.post(`https://api.textgears.com/check.php?${newText}&key=SLWs2uA5eFKaj3e6`)
-    //   .then((data) => {
-    //     let {result, errors } = data.data
-    //     this.setState({ result, errors });
-    //     console.log(data.errors)
-    //     console.log('grammar api:',data)
-        
-    //   })
-    //   .catch((err) => console.log('There was an error:', err));
-    /****************
-    we are testing out the node package for textgears
-    ****************/
     textgears({
       key: 'SLWs2uA5eFKaj3e6',
-      text: this.state.text,
+      // text: this.state.text,
+      text: 'My mother are a doctor, but my father is a angeneer. I has a gun.',
     }).then( (res) => {
-      let grammarAnalysis = JSON.stringify(res.errors);
-      const regex = /\{|\}|(.offset....|.length....|.id.............|\[|])/g;
-      const str = grammarAnalysis
-      const subst = ``;
-      
-      // The substituted value will be contained in the result variable
-      const result = str.replace(regex, subst).trim();
-      // console.log(result);
-      // console.log(result.length)
-      // const result1 = result.split('');
-      // console.log(result1);
-      
-      var newTest = JSON.stringify(result.replace(/,/g, ''));
+      console.log('res: ', res);
+      const allErrors = res.errors;
+      this.setState({ allErrors });
+      console.log('allErrors from api: ', allErrors);
+      console.log('allErrors from state: ', this.state.allErrors);
+      allErrors.forEach((err) => {
+        console.log('bad part: ', err.bad);
+        const better = err.better;
+        better.forEach((better) => {
+          console.log('suggestion: ', better);
+        });
+      });
 
-      console.log('this is the newTest', newTest);
-      // console.log(grammarAnalysis);
-      // console.log(res.errors);
-      this.setState({ newTest });
-      // console.log(this.state.newTest);
-      // console.log(res.errors);
-      for (const error of res.errors) {
-        console.log(error);
-        console.log('Bad: %s. Better: %s', error.bad, error.better.join(', '));
-      }
-    });
+      // let grammarAnalysis = JSON.stringify(res.errors);
+      // const regex = /\{|\}|(.offset....|.length....|.id.............|\[|])/g;
+      // const str = grammarAnalysis
+      // const subst = ``;
+      //
+      // // The substituted value will be contained in the result variable
+      // const result = str.replace(regex, subst).trim();
+      // // console.log(result);
+      // // console.log(result.length)
+      // // const result1 = result.split('');
+      // // console.log(result1);
+      //
+      // var newTest = JSON.stringify(result.replace(/,/g, ''));
+      //
+      // console.log('this is the newTest', newTest);
+      // // console.log(grammarAnalysis);
+      // // console.log(res.errors);
+      // this.setState({ newTest });
+      // // console.log(this.state.newTest);
+      // // console.log(res.errors);
+      // for (const error of res.errors) {
+      //   console.log(error);
+      //   console.log('Bad: %s. Better: %s', error.bad, error.better.join(', '));
+      // }
+    })
+    .catch(err => console.log('there was an error in textgears: ', err));
+  }
+
+  renderTable() {
+    console.log('inside render table: ', this.state.allErrors);
+    return (
+      this.state.allErrors &&
+      <Table errors={this.state.allErrors} />
+    );
   }
 
   render() {
     return (
       <div>
-        <button className='btn btn-primary' onClick={this.listen}>Talk</button>
-        <p>{this.state.text}</p>
-        <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
-        <p>{this.state.sentimentScore}</p>
-        <p>{this.state.sentimentMagnitude}</p>
-        <p>{this.state.newScore}</p>
-        <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
-        <p>{this.state.newTest}</p>
+        <div>
+          <button className='btn btn-primary' onClick={this.listen}>Talk</button>
+          <p>{this.state.text}</p>
+          <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
+          <p>{this.state.sentimentScore}</p>
+          <p>{this.state.sentimentMagnitude}</p>
+          <p>{this.state.newScore}</p>
+          <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
+          <p>{this.state.newTest}</p>
+          <hr />
+        </div>
+        {this.renderTable()}
       </div>
     );
   }
