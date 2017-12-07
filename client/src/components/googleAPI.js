@@ -59,8 +59,7 @@ class Demo extends Component {
       .then((data) => {
         let {result, errors } = data.data
         this.setState({ result, errors });
-        console.log(result);
-        console.log(errors);
+        console.log(data.errors)
         console.log('grammar api:',data)
         
       })
@@ -78,7 +77,7 @@ class Demo extends Component {
         <p>{this.state.sentimentMagnitude}</p>
         <p>{this.state.newScore}</p>
         <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
-        <p>{this.state.errors}</p>
+        <p>{this.state.result}</p>
       </div>
     );
   }
