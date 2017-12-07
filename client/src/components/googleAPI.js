@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+
+// textgears package
+import textgears from 'textgears';
+// 
+
 const axios = require('axios');
 const { getScore, textPlus } = require('./helpers/helper');
+
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -14,6 +20,7 @@ class Demo extends Component {
       text: '',
       sentimentScore: '',
       sentimentMagnitude: '',
+      grammarAnalysis: '',
     };
     this.listen = this.listen.bind(this);
     this.analyze = this.analyze.bind(this);
@@ -53,18 +60,34 @@ class Demo extends Component {
 
   grammar(event) {
     event.preventDefault();
-    const { text } = this.state;
-    const newText = textPlus(text);
-    axios.post(`https://api.textgears.com/check.php?${newText}&key=SLWs2uA5eFKaj3e6`)
-      .then((data) => {
-        let {result, errors } = data.data
-        this.setState({ result, errors });
-        console.log(data.errors)
-        console.log('grammar api:',data)
+    // const { text } = this.state;
+    // const newText = textPlus(text);
+    // axios.post(`https://api.textgears.com/check.php?${newText}&key=SLWs2uA5eFKaj3e6`)
+    //   .then((data) => {
+    //     let {result, errors } = data.data
+    //     this.setState({ result, errors });
+    //     console.log(data.errors)
+    //     console.log('grammar api:',data)
         
-      })
-      .catch((err) => console.log('There was an error:', err));
-
+    //   })
+    //   .catch((err) => console.log('There was an error:', err));
+    /****************
+    we are testing out the node package for textgears
+    ****************/
+    textgears({
+      key: 'SLWs2uA5eFKaj3e6',
+      text: this.state.text,
+    }).then( (res) => {
+      let grammarAnalysis = JSON.stringify(res.errors);
+      // console.log(grammarAnalysis);
+      // console.log(res.errors);
+      this.setState({ grammarAnalysis });
+      // console.log(this.state.grammarAnalysis);
+      // console.log(res.errors);
+      for (const error of res.errors) {
+        console.log('Bad: %s. Better: %s', error.bad, error.better.join(', '));
+      }
+    });
   }
 
   render() {
@@ -72,12 +95,12 @@ class Demo extends Component {
       <div>
         <button className='btn btn-primary' onClick={this.listen}>Talk</button>
         <p>{this.state.text}</p>
-        <button className='btn btn-primary' onClick={this.analyze}>analyze</button>
+        <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
         <p>{this.state.sentimentScore}</p>
         <p>{this.state.sentimentMagnitude}</p>
         <p>{this.state.newScore}</p>
         <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
-        <p>{this.state.result}</p>
+        <p>{this.state.grammarAnalysis}</p>
       </div>
     );
   }
