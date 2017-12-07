@@ -17,7 +17,5 @@ export const getScore = (score) => {
 
 
 export const textPlus = (text) => {
-  console.log(typeof text);
-  console.log(text.toString().split(' ').join('+'));
   return text.toString().split(' ').join('+');
 }
