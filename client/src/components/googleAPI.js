@@ -32,23 +32,49 @@ class Demo extends Component {
 
   componentDidMount() {
     recognition.addEventListener('result', (e) => {
+      
       let last = e.results.length - 1;
       let text = e.results[last][0].transcript;
+      
+      console.log('this is the e.results', e.results);
       text =  text.charAt(0).toUpperCase() + text.substring(1);
       console.log('Text: ', text);
       console.log('Confidence: ' + e.results[0][0].confidence);
       console.log('Results: ', e.results);
       this.setState({ text });
     } );
+    recognition.addEventListener('speechend', (e) => {
+      console.log('this is working again')
+      this.refs.btn.removeAttribute("disabled", "disabled");
+    } );
   }
 
   listen(event) {
+    
     event.preventDefault();
     recognition.start();
     console.log('listening');
+    
+    // setTimeout(this.refs.btn.setAttribute("disabled", "disabled"), 0)
+    
+    this.refs.btn.setAttribute("disabled", "disabled");
+
+    // Button is disabled when input state is empty.
+    // <button disabled={!this.state} />
+    // this.refs.btn.removeAttribute("disabled", "disabled");
+
+    // clearTimeout();
+    // this.refs.btn.setAttribute("enabled", "enabled");
+
+    // recognition.onspeechend = function(event) {
+    //   console.log('Error occurred in recognition: ');
+    // }
   }
 
+  
+
   analyze(event) {
+    
     event.preventDefault();
     const { text } = this.state;
     axios.post('http://localhost:4000/api/sentiment', { text }) //retun was missing
@@ -122,7 +148,7 @@ class Demo extends Component {
     return (
       <div>
         <div>
-          <button className='btn btn-primary' onClick={this.listen}>Talk</button>
+          <button className='btn btn-primary' ref="btn" onClick={this.listen}>Talk</button>
           <p>{this.state.text}</p>
           <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
           <p>{this.state.sentimentScore}</p>
