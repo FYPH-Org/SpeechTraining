@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import textgears from 'textgears';
 import Table from './Table';
 
 const logger = console;
@@ -73,25 +72,25 @@ class Demo extends Component {
 
   grammar(event) {
     event.preventDefault();
-    textgears({
-      key: 'SLWs2uA5eFKaj3e6',
-      // text: this.state.text,
-      text: 'My mother are a doctor, but my father is a angeneer. I has a gun.',
-    }).then( (res) => {
-      logger.log('res: ', res);
-      const allErrors = res.errors;
-      this.setState({ allErrors });
-      logger.log('allErrors from api: ', allErrors);
-      logger.log('allErrors from state: ', this.state.allErrors);
-      allErrors.forEach((err) => {
-        logger.log('bad part: ', err.bad);
-        const better = err.better;
-        better.forEach((better) => {
-          logger.log('suggestion: ', better);
-        });
-      });
-    })
-      .catch(err => logger.log('there was an error in textgears: ', err));
+    // textgears({
+    //   key: 'SLWs2uA5eFKaj3e6',
+    //   // text: this.state.text,
+    //   text: 'My mother are a doctor, but my father is a angeneer. I has a gun.',
+    // }).then( (res) => {
+    //   logger.log('res: ', res);
+    //   const allErrors = res.errors;
+    //   this.setState({ allErrors });
+    //   logger.log('allErrors from api: ', allErrors);
+    //   logger.log('allErrors from state: ', this.state.allErrors);
+    //   allErrors.forEach((err) => {
+    //     logger.log('bad part: ', err.bad);
+    //     const better = err.better;
+    //     better.forEach((better) => {
+    //       logger.log('suggestion: ', better);
+    //     });
+    //   });
+    // })
+    //   .catch(err => logger.log('there was an error in textgears: ', err));
   }
 
   renderTable() {
