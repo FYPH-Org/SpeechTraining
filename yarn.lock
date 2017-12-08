@@ -3322,6 +3322,10 @@ text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
+textgears@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/textgears/-/textgears-1.0.0.tgz#e28e67c6ea9f5b21c096804b0f2e458fdde24393"
+
 through2@^2.0.0, through2@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.3.tgz#0004569b37c7c74ba39c43f3ced78d1ad94140be"
