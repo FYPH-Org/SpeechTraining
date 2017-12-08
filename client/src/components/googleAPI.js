@@ -72,17 +72,17 @@ class Demo extends Component {
 
   grammar(event) {
     event.preventDefault();
-    let { text } = this.state;
-    text = 'Hello is there';
-    text = 'My mother are a doctor, but my father is a angeneer. I has a gun.';
+    const { text } = this.state;
+    // text = 'Hello is there';
+    // text = 'My mother are a doctor, but my father is a angeneer. I has a gun.';
     axios.post('http://localhost:4000/api/grammar', { text })
       .then((element) => {
         logger.log('element data: ', element.data);
         const allErrors = element.data.errors;
         if (allErrors.length < 1) {
-          this.setState({ noErrors: true });
+          this.setState({ noErrors: true, allErrors: null });
         } else {
-          this.setState({ allErrors });
+          this.setState({ allErrors, noErrors: false });
         }
       })
       .catch((err) => {
