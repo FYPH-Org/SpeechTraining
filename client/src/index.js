@@ -9,15 +9,16 @@ import App from './App';
 
 firebaseApp.auth().onAuthStateChanged(user => {
   if (user) {
-      console.log('user has signed in or up', user);
+    // eslint-disable-next-line
+    console.log('user has signed in or up', user);
   } else {
-      console.log('user has signed out or still needs to sign in', )
-  } 
-})
+    // eslint-disable-next-line
+    console.log('user has signed out or still needs to sign in');
+  }
+});
 
 
 ReactDOM.render(
   <Router>
     <App/>
   </Router>, document.getElementById('root'));
-

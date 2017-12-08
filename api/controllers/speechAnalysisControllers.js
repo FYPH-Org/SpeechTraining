@@ -34,30 +34,30 @@ const test = (req, res) => {
 const dbtest = (req, res) => {
   const { Username, email, analysis } = req.body;
   if (!Username) {
-    res.status(STATUS_USER_ERROR);
+    res.status(SERVER_USER_ERROR);
     res.json({ error: 'Missing required Username' });
     return;
   }
   if (!analysis) {
-    res.status(STATUS_USER_ERROR);
+    res.status(SERVER_USER_ERROR);
     res.json({ error: 'Missing required analysis' });
     return;
   }
   if (!email) {
-    res.status(STATUS_USER_ERROR);
+    res.status(SERVER_USER_ERROR);
     res.json({ error: 'Missing email' });
     return;
   }
   const newUser = new User({ Username, email, analysis });
   newUser.save((err) => {
     if (err) {
-      res.status(STATUS_SERVER_ERROR);
+      res.status(SERVER_USER_ERROR);
       res.json({ error: 'error' });
       return;
     }
     res.json(newUser);
   });
-}
+};
 
 const sentiment = (req, res) => {
   const info = {};
@@ -71,14 +71,9 @@ const sentiment = (req, res) => {
 
   // Detects the sentiment of the text
   client
-    .analyzeSentiment({document: document})
+    .analyzeSentiment({ document: document })
     .then(results => {
       const sentiment = results[0].documentSentiment;
-      // info = {
-      //   text,
-      //   sentimentScore: sentiment.score,
-      //   sentimentMagnitude: sentiment.magnitude,
-      // };
       info.text = text;
       info.sentimentScore = sentiment.score;
       info.sentimentMagnitude = sentiment.magnitude;
@@ -86,16 +81,13 @@ const sentiment = (req, res) => {
       client
         .analyzeSyntax({ document: document })
         .then(results => {
+          // eslint-disable-next-line
           const syntax = results[0].documentSentiment;
           info.results = results;
           res.json(info);
-        })
-      // res.json(info);
-
-      // console.log(`Text: ${text}`);
-      // console.log(`Sentiment score: ${sentiment.score}`);
-      // console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
+        });
     })
+    // eslint-disable-next-line
     .catch(err => {
       sendUserError('there was an error in the server1, try again.', res);
     });

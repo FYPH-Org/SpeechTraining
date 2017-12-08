@@ -4,7 +4,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-       <h1>Welcome To Speech Training!</h1>
+        <h1>Welcome To Speech Training!</h1>
       </div>
     );
   }
