@@ -9,12 +9,9 @@ export const getScore = (score) => {
     return 'this is a somewhat positive statement';
   case (score >= -0.4):
     return 'this is a somewhat negative statement';
-  default:
+  case (score >= -0.8):
     return 'this is a very negative statement';
+  default:
+    return 'something went wrong with your score, try again! : ) ';
   }
-};
-
-
-export const textPlus = (text) => {
-  return text.toString().split(' ').join('+');
 };
