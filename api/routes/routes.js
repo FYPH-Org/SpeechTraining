@@ -15,7 +15,7 @@ const routes = (server) => {
 
   // db test route
   apiRoutes.route('/dbtest')
-  .post(speechAnalysisControllers.dbtest);
+    .post(speechAnalysisControllers.dbtest);
 
   // Sentiment
   apiRoutes.route('/sentiment')

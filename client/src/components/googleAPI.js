@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-
-// textgears package
 import textgears from 'textgears';
-//
 import Table from './Table';
 
+const logger = console;
+
 const axios = require('axios');
-const { getScore, textPlus } = require('./helpers/helper');
-
-
-
+const { getScore } = require('./helpers/helper');
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 recognition.lang = 'en-US';
@@ -32,60 +28,47 @@ class Demo extends Component {
 
   componentDidMount() {
     recognition.addEventListener('result', (e) => {
-      
+
       let last = e.results.length - 1;
       let text = e.results[last][0].transcript;
-      
-      console.log('this is the e.results', e.results);
+
+      logger.log('this is the e.results', e.results);
       text =  text.charAt(0).toUpperCase() + text.substring(1);
-      console.log('Text: ', text);
-      console.log('Confidence: ' + e.results[0][0].confidence);
-      console.log('Results: ', e.results);
+      logger.log('Text: ', text);
+      logger.log('Confidence: ' + e.results[0][0].confidence);
+      logger.log('Results: ', e.results);
       this.setState({ text });
     } );
     recognition.addEventListener('speechend', (e) => {
-      console.log('this is working again')
-      this.refs.btn.removeAttribute("disabled", "disabled");
+      logger.log('this is working again', e);
+      this.refs.btn.removeAttribute('disabled', 'disabled');
     } );
   }
 
   listen(event) {
-    
+
     event.preventDefault();
     recognition.start();
-    console.log('listening');
-    
-    // setTimeout(this.refs.btn.setAttribute("disabled", "disabled"), 0)
-    
-    this.refs.btn.setAttribute("disabled", "disabled");
+    logger.log('listening');
+    this.refs.btn.setAttribute('disabled', 'disabled');
 
-    // Button is disabled when input state is empty.
-    // <button disabled={!this.state} />
-    // this.refs.btn.removeAttribute("disabled", "disabled");
-
-    // clearTimeout();
-    // this.refs.btn.setAttribute("enabled", "enabled");
-
-    // recognition.onspeechend = function(event) {
-    //   console.log('Error occurred in recognition: ');
-    // }
   }
 
-  
+
 
   analyze(event) {
-    
+
     event.preventDefault();
     const { text } = this.state;
     axios.post('http://localhost:4000/api/sentiment', { text }) //retun was missing
       .then((data) => {
-        console.log('data: ', data.data);
-        let { sentimentMagnitude, sentimentScore} = data.data
+        logger.log('data: ', data.data);
+        let { sentimentMagnitude, sentimentScore } = data.data;
         const newScore = getScore(sentimentScore);
         this.setState({ sentimentMagnitude, sentimentScore, newScore });
 
       })
-      .catch((err) => console.log('there was an error: ', err));
+      .catch((err) => logger.log('there was an error: ', err));
   }
 
   grammar(event) {
@@ -95,49 +78,24 @@ class Demo extends Component {
       // text: this.state.text,
       text: 'My mother are a doctor, but my father is a angeneer. I has a gun.',
     }).then( (res) => {
-      console.log('res: ', res);
+      logger.log('res: ', res);
       const allErrors = res.errors;
       this.setState({ allErrors });
-      console.log('allErrors from api: ', allErrors);
-      console.log('allErrors from state: ', this.state.allErrors);
+      logger.log('allErrors from api: ', allErrors);
+      logger.log('allErrors from state: ', this.state.allErrors);
       allErrors.forEach((err) => {
-        console.log('bad part: ', err.bad);
+        logger.log('bad part: ', err.bad);
         const better = err.better;
         better.forEach((better) => {
-          console.log('suggestion: ', better);
+          logger.log('suggestion: ', better);
         });
       });
-
-      // let grammarAnalysis = JSON.stringify(res.errors);
-      // const regex = /\{|\}|(.offset....|.length....|.id.............|\[|])/g;
-      // const str = grammarAnalysis
-      // const subst = ``;
-      //
-      // // The substituted value will be contained in the result variable
-      // const result = str.replace(regex, subst).trim();
-      // // console.log(result);
-      // // console.log(result.length)
-      // // const result1 = result.split('');
-      // // console.log(result1);
-      //
-      // var newTest = JSON.stringify(result.replace(/,/g, ''));
-      //
-      // console.log('this is the newTest', newTest);
-      // // console.log(grammarAnalysis);
-      // // console.log(res.errors);
-      // this.setState({ newTest });
-      // // console.log(this.state.newTest);
-      // // console.log(res.errors);
-      // for (const error of res.errors) {
-      //   console.log(error);
-      //   console.log('Bad: %s. Better: %s', error.bad, error.better.join(', '));
-      // }
     })
-    .catch(err => console.log('there was an error in textgears: ', err));
+      .catch(err => logger.log('there was an error in textgears: ', err));
   }
 
   renderTable() {
-    console.log('inside render table: ', this.state.allErrors);
+    logger.log('inside render table: ', this.state.allErrors);
     return (
       this.state.allErrors &&
       <Table errors={this.state.allErrors} />
