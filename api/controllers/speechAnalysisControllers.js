@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const dotenv = require('dotenv');
 const language = require('@google-cloud/language');
+const textgears = require('textgears');
 
 // Instantiates a client
 const client = new language.LanguageServiceClient({
@@ -91,11 +92,26 @@ const sentiment = (req, res) => {
     .catch(err => {
       sendUserError('there was an error in the server1, try again.', res);
     });
+};
 
+const grammar = (req, res) => {
+  const { text } = req.body;
+  if (!text) return sendUserError('Please provide the text', res);
+  textgears({
+    key: process.env.TEXTGEARS_KEY,
+    text,
+  })
+    .then((element) => {
+      res.json(element);
+    })
+    .catch((err) => {
+      sendUserError(err, res);
+    });
 };
 
 module.exports = {
   test,
   dbtest,
   sentiment,
+  grammar,
 };
