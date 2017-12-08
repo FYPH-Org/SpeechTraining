@@ -22,6 +22,6 @@
   "scripts": {
     "start": "nodemon app.js",
     "landing": "nodemon landingserver.js",
-    "lint": "eslint api/** && eslint client/src/components/*.js && eslint client/src/*.js && eslint app.js"
+    "lint": "eslint api/** && eslint client/src/components/*.js && eslint client/src/components/helpers/*.js && eslint client/src/*.js &&eslint app.js" 
   }
 }
