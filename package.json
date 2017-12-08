@@ -17,11 +17,12 @@
     "eslint-plugin-react": "^7.5.1",
     "express": "^4.16.2",
     "mongoose": "^4.13.5",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "textgears": "^1.0.0"
   },
   "scripts": {
     "start": "nodemon app.js",
     "landing": "nodemon landingserver.js",
-    "lint": "eslint api/** && eslint client/src/components/*.js && eslint client/src/components/helpers/*.js && eslint client/src/*.js &&eslint app.js" 
+    "lint": "eslint api/** && eslint client/src/components/*.js && eslint client/src/components/helpers/*.js && eslint client/src/*.js &&eslint app.js"
   }
 }

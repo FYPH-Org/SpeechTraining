@@ -21,6 +21,8 @@ const routes = (server) => {
   apiRoutes.route('/sentiment')
     .post(speechAnalysisControllers.sentiment);
 
+  apiRoutes.route('/grammar')
+    .post(speechAnalysisControllers.grammar);
 
   server.use('/api', apiRoutes);
 };

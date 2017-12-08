@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import textgears from 'textgears';
 import Table from './Table';
 
 const logger = console;
@@ -73,25 +72,22 @@ class Demo extends Component {
 
   grammar(event) {
     event.preventDefault();
-    textgears({
-      key: 'SLWs2uA5eFKaj3e6',
-      // text: this.state.text,
-      text: 'My mother are a doctor, but my father is a angeneer. I has a gun.',
-    }).then( (res) => {
-      logger.log('res: ', res);
-      const allErrors = res.errors;
-      this.setState({ allErrors });
-      logger.log('allErrors from api: ', allErrors);
-      logger.log('allErrors from state: ', this.state.allErrors);
-      allErrors.forEach((err) => {
-        logger.log('bad part: ', err.bad);
-        const better = err.better;
-        better.forEach((better) => {
-          logger.log('suggestion: ', better);
-        });
+    let { text } = this.state;
+    text = 'Hello is there';
+    text = 'My mother are a doctor, but my father is a angeneer. I has a gun.';
+    axios.post('http://localhost:4000/api/grammar', { text })
+      .then((element) => {
+        logger.log('element data: ', element.data);
+        const allErrors = element.data.errors;
+        if (allErrors.length < 1) {
+          this.setState({ noErrors: true });
+        } else {
+          this.setState({ allErrors });
+        }
+      })
+      .catch((err) => {
+        logger.log('error in text gears: ', err);
       });
-    })
-      .catch(err => logger.log('there was an error in textgears: ', err));
   }
 
   renderTable() {
@@ -99,6 +95,13 @@ class Demo extends Component {
     return (
       this.state.allErrors &&
       <Table errors={this.state.allErrors} />
+    );
+  }
+
+  noErrors() {
+    return (
+      this.state.noErrors &&
+      <h1>The text is perfectly fine</h1>
     );
   }
 
@@ -117,6 +120,7 @@ class Demo extends Component {
           <hr />
         </div>
         {this.renderTable()}
+        {this.noErrors()}
       </div>
     );
   }
