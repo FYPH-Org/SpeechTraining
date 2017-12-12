@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { firebaseApp } from '../firebase';
+import axios from 'axios';
 
 const logger = console;
 
@@ -26,7 +27,8 @@ class SignIn extends Component {
           email: '',
           password: ''
         });
-        this.props.history.push('/about');
+        sessionStorage.setItem('username', email);
+        this.props.history.push('/listen');
       })
       .catch(error => {
         this.setState({ error });
