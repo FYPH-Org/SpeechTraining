@@ -1,9 +1,9 @@
 const express = require('express');
-
+const speechAnalysisControllers = require('../controllers/speechAnalysisControllers');
+const userControllers = require('../controllers/user');
 // test comment.
 
 const routes = (server) => {
-  const speechAnalysisControllers = require('../controllers/speechAnalysisControllers');
 
   const apiRoutes = express.Router();
 
@@ -23,6 +23,10 @@ const routes = (server) => {
 
   apiRoutes.route('/grammar')
     .post(speechAnalysisControllers.grammar);
+
+  // user routes
+  apiRoutes.route('/register')
+    .post(userControllers.register);
 
   server.use('/api', apiRoutes);
 };
