@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+import { firebaseApp } from '../firebase';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
+
+const logger = console;
 
 class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  handleLogout() {
+    firebaseApp.auth().signOut()
+      .then(() => {
+        sessionStorage.removeItem('username');
+      })
+      .catch((err) => {
+        logger.log('there was an error logging you out');
+        logger.log(err);
+      });
   }
 
   render() {
@@ -37,7 +51,7 @@ class Navigation extends Component {
             </LinkContainer>
 
             <LinkContainer to={'/'}>
-              <NavItem onClick={this.handleLogout}>Logout</NavItem>
+              <NavItem onClick={() => this.handleLogout()}>Logout</NavItem>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
