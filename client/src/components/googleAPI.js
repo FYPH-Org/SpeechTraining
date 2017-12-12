@@ -14,6 +14,7 @@ class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoggedIn: false,
       text: '',
       sentimentScore: '',
       sentimentMagnitude: '',
@@ -26,6 +27,9 @@ class Demo extends Component {
   }
 
   componentDidMount() {
+    if (sessionStorage.getItem('username')) {
+      this.setState({ isLoggedIn: true });
+    }
     recognition.addEventListener('result', (e) => {
 
       let last = e.results.length - 1;
@@ -98,6 +102,13 @@ class Demo extends Component {
     );
   }
 
+  loggedIn() {
+    if (this.state.isLoggedIn) {
+      return <h1>You are logged in</h1>;
+    }
+    return <h1>Please log in</h1>
+  }
+
   noErrors() {
     return (
       this.state.noErrors &&
@@ -108,7 +119,8 @@ class Demo extends Component {
   render() {
     return (
       <div>
-        <div>
+        {this.loggedIn()}
+        {/* <div>
           <button className='btn btn-primary' ref="btn" onClick={this.listen}>Talk</button>
           <p>{this.state.text}</p>
           <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
@@ -120,7 +132,7 @@ class Demo extends Component {
           <hr />
         </div>
         {this.renderTable()}
-        {this.noErrors()}
+        {this.noErrors()} */}
       </div>
     );
   }

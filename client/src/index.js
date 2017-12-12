@@ -11,6 +11,7 @@ firebaseApp.auth().onAuthStateChanged(user => {
   if (user) {
     // eslint-disable-next-line
     console.log('user has signed in or up', user);
+    console.log('this.state: ', this.state);
   } else {
     // eslint-disable-next-line
     console.log('user has signed out or still needs to sign in');
