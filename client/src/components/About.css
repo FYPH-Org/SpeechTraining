@@ -28,9 +28,6 @@
     @media only screen and (min-width : 1200px) {
 
     }
-/*body{
-    background: url('https://static.pexels.com/photos/64057/pexels-photo-64057.jpeg');
-}*/
 
 
 /*.speech-training-header1 {
@@ -80,21 +77,19 @@
     border-radius: 10px;
 }
 */
+body {
+    background-image: url('https://static.pexels.com/photos/64057/pexels-photo-64057.jpeg');
+}
 .container {
     background-image: url('https://static.pexels.com/photos/64057/pexels-photo-64057.jpeg');
 }
-.bg { 
-    /* The image used */
+/*.bg { 
     background-image: url('https://static.pexels.com/photos/64057/pexels-photo-64057.jpeg');
-
-    /* Half height */
     height: 50%; 
-
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+}*/
 
 h3 {
     color: blue;
