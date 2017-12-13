@@ -1,0 +1,14 @@
+.signinMain {
+  text-align: center;
+  font-family: Arial Black;
+  background-color: #EF3B3A;
+  height: 100vh;
+}
+
+.signinButton {
+  margin-top: 5px;
+}
+
+.signinBody {
+  background-color: green;
+}
