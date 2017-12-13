@@ -1,0 +1,16 @@
+.signinMain {
+  text-align: center;
+  font-family: Arial Black;
+  background-color: white;
+  margin: 15vh 10vh;
+  padding: 10% 10%;
+  border: 1px solid black;
+}
+
+.signinButton {
+  margin-top: 5px;
+}
+
+a {
+  color: #76b852;
+}
