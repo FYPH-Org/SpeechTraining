@@ -50,7 +50,6 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className='signinBody'>
         <div className='form-inline signinMain'>
           <h2 style={{margin:0}}>Sign Up</h2>
           <div className='form-group'>
@@ -85,7 +84,6 @@ class SignUp extends Component {
             <Link to={'/signin'}>Already a user? Sign in instead</Link>
           </div>
         </div>
-      </div>
     );
   }
 }
