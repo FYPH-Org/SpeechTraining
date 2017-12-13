@@ -5,16 +5,17 @@ import { firebaseApp } from './firebase';
 import './index.css';
 
 import App from './App';
+const logger = console;
 
 
 firebaseApp.auth().onAuthStateChanged(user => {
   if (user) {
     // eslint-disable-next-line
-    console.log('user has signed in or up', user);
-    console.log('this.state: ', this.state);
+    logger.log('user has signed in or up', user);
+    logger.log('this.state: ', this.state);
   } else {
     // eslint-disable-next-line
-    console.log('user has signed out or still needs to sign in');
+    logger.log('user has signed out or still needs to sign in');
   }
 });
 

@@ -1,0 +1,98 @@
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+
+    /*==========  Mobile First Method  ==========*/
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+
+    }
+/*body{
+    background: url('https://static.pexels.com/photos/64057/pexels-photo-64057.jpeg');
+}*/
+
+
+/*.speech-training-header1 {
+    float: left;
+    width: 96%;
+    padding: 15px 2% 15px 2%;
+    min-height: auto;
+    text-align: center;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: bold;
+    color: #def;
+    margin: 0 0 0px 0;
+    background-color: brown;
+    border: 2px #abc solid;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.speech-trainer-maintxt1 {
+    float: left;
+    font-family: arial,sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: normal;
+    color: #303030;
+    text-align: justify;
+    margin: 0 0 20px 0;
+}
+.speech-training-header2 {
+    float: left;
+    width: 96%;
+    padding: 15px 2% 15px 2%;
+    min-height: auto;
+    text-align: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: bold;
+    color: #def;
+    margin: 0 0 0px 0;
+    background-color: brown;
+    border: 2px #abc solid;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+*/
+.container {
+    background-image: url('https://static.pexels.com/photos/64057/pexels-photo-64057.jpeg');
+}
+.bg { 
+    /* The image used */
+    background-image: url('https://static.pexels.com/photos/64057/pexels-photo-64057.jpeg');
+
+    /* Half height */
+    height: 50%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+                
