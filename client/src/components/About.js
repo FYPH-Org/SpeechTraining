@@ -6,10 +6,10 @@ class About extends Component {
   render() {
     return (
       <div>
-        <div className = 'container'>
+        <div className='container' >
           {/*<div class='bg'></div>*/}
           {/*<img src='speech_img.jpeg' class='img-responsive' />*/}
-          <img src={speechT} alt='speech_img' />
+          <img src={speechT} alt='speech_img' class='img-responsive'/>
           <div className ='well'>Improve Communication Skills with Speech Training</div>
           <br/>
           <div className='panel'>Have confidence and make a good impression whenever you want, and wherever you are with Speech Training.  With the help of the Speech Training app you can learn English in a better and more effective way.  You can enhance your English with correct grammar and positive sentiments. </div>
@@ -20,7 +20,7 @@ class About extends Component {
           <div className='well'>1. Sign in.</div>
           <div className='well'>1. Start exploring.</div>
           <br />
-          <h4>Start Today!</h4>
+          <h3>Start Today!</h3>
         </div>
       </div>
     );
