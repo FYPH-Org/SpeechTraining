@@ -14,16 +14,24 @@
 .about-main-title {
   margin-top: 1.5em;
   margin-bottom: 1em;
+  color: #FFFFFF;
+  font-size: 32px;
+  background-color: black;
+  border: 2px solid white;
 }
 
+.panel-title-custom {
+  font-size: 1.6em;
+}
 .panel-custom {
-  background-color: #000000;
+  background-color: rgba(0,0,0,.8);
   color: #FFFFFF;
-  font-size: 5em;
 }
 
 .panel-body-box {
-  background-color: rgba(222, 222, 222, .5);
+  background-color: rgba(222, 222, 222, .7);
+  color: #000000;
+  font-size: 1.3em;
 }
 
 /*==================================================
@@ -34,9 +42,6 @@
 
     /* Custom, iPhone Retina */
     @media only screen and (min-width : 320px) {
-      .about-main-title {
-        font-size: 30px;
-      }
 
     }
 
