@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { firebaseApp } from '../firebase';
 import axios from 'axios';
 // import ReactDOM from 'react-dom';
+import './signin.css';
+// styles
 
 const logger = console;
 
@@ -48,40 +50,40 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className="form-inline" style={{ margin: '5%' }}>
-        <h2>Sign Up</h2>
-        <div className="form-group">
-          <input
-            className="form-control"
-            type="text"
-            value={this.state.email}
-            style={{ marginRight: '5px' }}
-            placeholder="email"
-            onChange={event => this.setState({ email: event.target.value })}
-          />
-          <input
-            className="form-control"
-            type="password"
-            value={this.state.password}
-            style={{ marginRight: '5px' }}
-            placeholder="password"
-            onChange={event => this.setState({ password: event.target.value })}
-          />
-          <button
-            className="btn btn-primary"
-            type="button"
-            onClick={() => this.signUp()}
-          >
-            Sign Up
-          </button>
+        <div className='form-inline signinMain'>
+          <h2 style={{margin:0}}>Sign Up</h2>
+          <div className='form-group'>
+            <input
+              className='form-control'
+              type='text'
+              value={this.state.email}
+              style={{ marginRight: '5px' }}
+              placeholder='email'
+              onChange={event => this.setState({ email: event.target.value })}
+            />
+            <input
+              className='form-control'
+              type='password'
+              value={this.state.password}
+              style={{ marginRight: '5px' }}
+              placeholder='password'
+              onChange={event => this.setState({ password: event.target.value })}
+            />
+            <button
+              className='btn btn-primary signinButton'
+              type='button'
+              onClick={() => this.signUp()}
+            >
+              Sign Up
+            </button>
+          </div>
+          <div>
+            {this.state.error.message}
+          </div>
+          <div>
+            <Link to={'/signin'}>Already a user? Sign in instead</Link>
+          </div>
         </div>
-        <div>
-          {this.state.error.message}
-        </div>
-        <div>
-          <Link to={'/signin'}>Already a user? Sign in instead</Link>
-        </div>
-      </div>
     );
   }
 }

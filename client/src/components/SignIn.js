@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { firebaseApp } from '../firebase';
 import axios from 'axios';
 
+import './signin.css';
+// styles
+
 const logger = console;
 
 class SignIn extends Component {
@@ -37,28 +40,28 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="form-inline" style={{ margin: '5%' }}>
-        <h2>Sign In</h2>
-        <div className="form-group">
+      <div className='form-inline signinMain'>
+        <h2 style={{margin:0}}>Sign In</h2>
+        <div className='form-group'>
           <input
-            className="form-control"
-            type="text"
+            className='form-control'
+            type='text'
             value={this.state.email}
             style={{ marginRight: '5px' }}
-            placeholder="email"
+            placeholder='email'
             onChange={event => this.setState({ email: event.target.value })}
           />
           <input
-            className="form-control"
-            type="password"
+            className='form-control'
+            type='password'
             value={this.state.password}
             style={{ marginRight: '5px' }}
-            placeholder="password"
+            placeholder='password'
             onChange={event => this.setState({ password: event.target.value })}
           />
           <button
-            className="btn btn-primary"
-            type="button"
+            className='btn btn-primary signinButton'
+            type='button'
             onClick={() => this.signIn()}
           >
             Sign In
