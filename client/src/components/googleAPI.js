@@ -76,9 +76,9 @@ class Demo extends Component {
 
   grammar(event) {
     event.preventDefault();
-    const { text } = this.state;
+    let { text } = this.state;
     // text = 'Hello is there';
-    // text = 'My mother are a doctor, but my father is a angeneer. I has a gun.';
+    text = 'My mother are a doctor, but my father is a angeneer. I has a gun.';
     axios.post('http://localhost:4000/api/grammar', { text })
       .then((element) => {
         logger.log('element data: ', element.data);
@@ -119,8 +119,8 @@ class Demo extends Component {
   render() {
     return (
       <div>
-        {this.loggedIn()}
-        {/* <div>
+        {/* {this.loggedIn()} */}
+        <div>
           <button className='btn btn-primary' ref="btn" onClick={this.listen}>Talk</button>
           <p>{this.state.text}</p>
           <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
@@ -132,7 +132,7 @@ class Demo extends Component {
           <hr />
         </div>
         {this.renderTable()}
-        {this.noErrors()} */}
+        {this.noErrors()}
       </div>
     );
   }
