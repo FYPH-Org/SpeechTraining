@@ -5,34 +5,46 @@ import speechT from './speechT.png';
 class About extends Component {
   render() {
     return (
-      <div className='about-container flex-container'>
+      <div className='about-container'>
         <div className='container'>
-          <div className="panel panel-warning">
+          <h1 className='about-main-title text-center'>Welcome to Speech Trainer</h1>
+          <div className="panel panel-custom">
             <div className="panel-heading">
               <h1 className="panel-title">Improve Communication Skills with Speech Training<a href="#application.urlroot#/html/tags/html_h1_tag.cfm"></a></h1>
             </div>
           </div>
-          <div className="panel panel-default">
-            <div className="panel-body">Have confidence and make a good impression whenever you want, and wherever you are with Speech Training.  With the help of the Speech Training app you can learn English in a better and more effective way.  You can enhance your English with correct grammar and positive sentiments. </div>
-          </div>
-          <div className="panel panel-warning">
-            <div className="panel-heading">
-              <h1 className="panel-title">What it Does?<a href="#application.urlroot#/html/tags/html_h1_tag.cfm"></a></h1>
+          <div className="panel panel-body-box">
+            <div className="panel-body">Have confidence and make a good
+              impression whenever you want, and wherever you are with Speech
+              Training.  With the help of the Speech Training app you can learn
+               English in a better and more effective way. You can enhance your
+                English with correct grammar and positive sentiments.
             </div>
           </div>
-          <div className="panel panel-default">
-            <div className="panel-body">The Speech Training app converts the speech of the user to text and analyzes the confidence, sentiment, and shows various options to correct the grammatical mistakes.</div>
-          </div>
-          <div className="panel panel-warning">
+          <div className="panel panel-custom">
             <div className="panel-heading">
-              <h1 className="panel-title">Just follow TWO simple steps: <a href="#application.urlroot#/html/tags/html_h1_tag.cfm"></a></h1>
+              <h1 className="panel-title">What it Does?</h1>
             </div>
           </div>
-          <div className="panel panel-default">
-            <div className="panel-body">1. Sign in.<br />2. Start exploring.</div>
+          <div className="panel panel-body-box">
+            <div className="panel-body">The Speech Training app converts the
+              speech of the user to text and analyzes the confidence, sentiment,
+               and shows various options to correct the grammatical mistakes.
+            </div>
+          </div>
+          <div className="panel panel-custom">
+            <div className="panel-heading">
+              <h1 className="panel-title">Just follow TWO simple steps:</h1>
+            </div>
+          </div>
+          <div className="panel panel-body-box">
+            <div className="panel-body">
+              1. Sign in. <br />
+              2. Start exploring.
+            </div>
           </div>
           <br />
-          <h3>Start Today!</h3>
+          <h3 className='text-center'>Start Today!</h3>
         </div>
       </div>
     );

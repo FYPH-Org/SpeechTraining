@@ -26,7 +26,7 @@ class Navigation extends Component {
 
   render() {
     return (
-      <Navbar collapseOnSelect className="navbar-custom">
+      <Navbar inverse collapseOnSelect className="navbar-custom">
         <Navbar.Header>
           <Navbar.Brand className="navbar-custom-color">
             <Link to="/"> Speech Trainer </Link>
