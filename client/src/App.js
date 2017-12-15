@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 import './App.css';
 
-import Homepage from './components/Homepage';
+import Homepage from './components/HomePage';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import About from './components/About';
