@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { firebaseApp } from '../firebase';
-import { LinkContainer } from 'react-router-bootstrap';
+import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import './Navigation.css';
@@ -10,7 +10,10 @@ const logger = console;
 class Navigation extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isLoggedIn: false,
+      notshow: 'hello'
+    };
   }
 
   handleLogout() {
@@ -24,6 +27,13 @@ class Navigation extends Component {
       });
   }
 
+  componentDidMount() {
+    if (sessionStorage.getItem('username')) {
+      console.log('is logged in true');
+      this.setState({ isLoggedIn: true });
+    }
+  }
+
   render() {
     return (
       <Navbar inverse collapseOnSelect className="navbar-custom">
@@ -34,25 +44,25 @@ class Navigation extends Component {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <Nav pullRight>
-            <LinkContainer to={'/homepage'}>
+          <Nav pullRight className='logout'>
+            <IndexLinkContainer exact to={'/'}>
               <NavItem>Home</NavItem>
-            </LinkContainer>
+            </IndexLinkContainer>
 
             <LinkContainer to={'/about'}>
               <NavItem>About</NavItem>
             </LinkContainer>
 
-            <LinkContainer to={'/signup'}>
+            {/* <LinkContainer to={'/signup'}>
               <NavItem>Sign Up</NavItem>
-            </LinkContainer>
+            </LinkContainer> */}
 
             <LinkContainer to={'/signin'}>
               <NavItem>Sign In</NavItem>
             </LinkContainer>
 
-            <LinkContainer to={'/'}>
-              <NavItem onClick={() => this.handleLogout()}>Logout</NavItem>
+            <LinkContainer exact to={'/'} className='logout'>
+              <NavItem onClick={() => this.handleLogout()} className='test'>Logout</NavItem>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
