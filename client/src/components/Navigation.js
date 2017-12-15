@@ -35,7 +35,7 @@ class Navigation extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <LinkContainer to={'/homepage'}>
+            <LinkContainer to={'/'}>
               <NavItem>Home</NavItem>
             </LinkContainer>
 
