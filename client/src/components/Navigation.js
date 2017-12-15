@@ -29,7 +29,7 @@ class Navigation extends Component {
 
   componentDidMount() {
     if (sessionStorage.getItem('username')) {
-      console.log('is logged in true');
+      logger.log('is logged in true');
       this.setState({ isLoggedIn: true });
     }
   }

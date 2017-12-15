@@ -106,7 +106,7 @@ class Demo extends Component {
     if (this.state.isLoggedIn) {
       return <h1>You are logged in</h1>;
     }
-    return <h1>Please log in</h1>
+    return <h1>Please log in</h1>;
   }
 
   noErrors() {
