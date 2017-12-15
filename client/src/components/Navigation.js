@@ -39,7 +39,7 @@ class Navigation extends Component {
       <Navbar inverse collapseOnSelect className="navbar-custom">
         <Navbar.Header>
           <Navbar.Brand className="navbar-custom-color">
-            <Link to="/"> Speech Trainer </Link>
+            <Link to="/">Speech Trainer</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

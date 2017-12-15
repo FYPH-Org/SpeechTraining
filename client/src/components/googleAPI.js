@@ -78,7 +78,7 @@ class Demo extends Component {
     event.preventDefault();
     let { text } = this.state;
     // text = 'Hello is there';
-    text = 'My mother are a doctor, but my father is a angeneer. I has a gun.';
+    // text = 'My mother are a doctor, but my father is a angeneer. I has a gun.';
     axios.post('http://localhost:4000/api/grammar', { text })
       .then((element) => {
         logger.log('element data: ', element.data);
