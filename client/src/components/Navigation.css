@@ -9,3 +9,14 @@
 .navbar-inverse .navbar-nav>li>a {
   color: #fff;
 }
+
+.navbar-brand {
+  background: url('./img/logopic.png') left / contain no-repeat;
+  width: 230px;
+  /*border-radius: 5%;*/
+  /*background-size: cover;*/
+  /*display: block;*/
+}
+
+
+/*<img src="./img/mic.jpeg" alt="..." className="rounded-circle"/>*/
