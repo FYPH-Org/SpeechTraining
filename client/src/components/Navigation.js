@@ -3,6 +3,7 @@ import { firebaseApp } from '../firebase';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import logo from './speechtrainer.png';
 import './Navigation.css';
 
 const logger = console;
@@ -39,7 +40,8 @@ class Navigation extends Component {
       <Navbar inverse collapseOnSelect className="navbar-custom">
         <Navbar.Header>
           <Navbar.Brand className="navbar-custom-color">
-            <Link to="/">Speech Trainer</Link>
+            {/* <Link to="/">Speech Trainer</Link> */}
+            <img src={logo} height='50'/>   
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
