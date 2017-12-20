@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from './Table';
+import { ButtonToolbar } from 'react-bootstrap';
 import './googleAPI.css';
 const logger = console;
 
@@ -24,6 +25,8 @@ class Demo extends Component {
     this.listen = this.listen.bind(this);
     this.analyze = this.analyze.bind(this);
     this.grammar = this.grammar.bind(this);
+    this.clear = this.clear.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -31,15 +34,10 @@ class Demo extends Component {
       this.setState({ isLoggedIn: true });
     }
     recognition.addEventListener('result', (e) => {
-
       let last = e.results.length - 1;
       let text = e.results[last][0].transcript;
-
-      logger.log('this is the e.results', e.results);
       text =  text.charAt(0).toUpperCase() + text.substring(1);
-      logger.log('Text: ', text);
-      logger.log('Confidence: ' + e.results[0][0].confidence);
-      logger.log('Results: ', e.results);
+      // logger.log('Confidence: ' + e.results[0][0].confidence);
       this.setState({ text });
     } );
     recognition.addEventListener('speechend', (e) => {
@@ -49,12 +47,11 @@ class Demo extends Component {
   }
 
   listen(event) {
-
+    this.setState({ allErrors: null });
     event.preventDefault();
     recognition.start();
     logger.log('listening');
     this.refs.btn.setAttribute('disabled', 'disabled');
-
   }
 
 
@@ -94,6 +91,10 @@ class Demo extends Component {
       });
   }
 
+  handleChange(event) {
+    this.setState({ text: event.target.value });
+  }
+
   renderTable() {
     logger.log('inside render table: ', this.state.allErrors);
     return (
@@ -116,23 +117,49 @@ class Demo extends Component {
     );
   }
 
+  clear() {
+    this.setState({ text: '' });
+  }
+
   render() {
     return (
       <div>
         {/* {this.loggedIn()} */}
         <div className='background'>
-          <button className='btn btn-primary' ref="btn" onClick={this.listen}>Talk</button>
-          <p className='text'>{this.state.text}</p>
-          <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
-          <p className='text'>{this.state.sentimentScore}</p>
-          <p className='textmag'>{this.state.sentimentMagnitude}</p>
-          <p className='textscore'>{this.state.newScore}</p>
-          <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
-          <p className='textgrammar'>{this.state.newTest}</p>
-          <hr />
+          <h1>Speech Trainer</h1>
+          <div className='container'>
+            <div className="form-group">
+              <label className='pull-left'>Press talk button to say text, or copy text into the field</label>
+              <textarea 
+                className="form-control"
+                rows="10"
+                value={this.state.text}
+                onChange={this.handleChange}
+              >
+              </textarea>
+            </div>
+            <ButtonToolbar className='pull-right'>
+              <button className='btn btn-primary' ref="btn" onClick={this.listen}>Talk</button>
+              <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
+              <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
+              <button className='btn btn-primary' onClick={this.clear}>clear</button>
+            </ButtonToolbar>
+            <div class='clearfix'></div>
+            <p className='text'>{this.state.sentimentScore}</p>
+            <p className='textmag'>{this.state.sentimentMagnitude}</p>
+            <p className='textscore'>{this.state.newScore}</p>
+            <p className='textgrammar'>{this.state.newTest}</p>
+            <hr />
+            {this.renderTable()}
+            {this.noErrors()}
+            <p className='text-muted'>
+              The smart English grammar checker finds and corrects mistakes or wrong word usage in your
+              text. The impression you make on people depends not only on what you write, but also on
+              how correct your writing is. Write correct English grammar with TextGears and improve not
+              only your text, but the impression you make on others!
+            </p>
+          </div>
         </div>
-        {this.renderTable()}
-        {this.noErrors()}
       </div>
     );
   }

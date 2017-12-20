@@ -9,17 +9,21 @@ import SignUp from './components/SignUp';
 import About from './components/About';
 import Navigation from './components/Navigation';
 import googleAPI from './components/googleAPI';
+import Footer from './components/Footer';
 
 class App extends Component {
   render() {
     return (
-      <div className='App'>
-        <Navigation />
-        <Route path='/' exact component={Homepage} />
-        <Route path='/signin' component={SignIn} />
-        <Route path='/signup' component={SignUp} />
-        <Route path='/about' component={About} />
-        <Route path='/listen' component={googleAPI} />
+      <div>
+        <div className='App'>
+          <Navigation />
+          <Route path='/' exact component={Homepage} />
+          <Route path='/signin' component={SignIn} />
+          <Route path='/signup' component={SignUp} />
+          <Route path='/about' component={About} />
+          <Route path='/listen' component={googleAPI} />
+        </div>
+        <Footer />
       </div>
     );
   }
