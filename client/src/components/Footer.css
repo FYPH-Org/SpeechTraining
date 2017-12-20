@@ -1,0 +1,22 @@
+footer {
+    background-color: black;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    border: solid 3px black;
+  }
+  
+  footer h1 {
+    font-size: 13px;
+    color: #fff;
+    text-align:center
+  }
+  
+  footer a {
+    color:#fff
+  }
+  
+  footer a:hover {
+    color:#fff;
+    background-color:rgba(81, 69, 107,0.9);
+    text-decoration:underline;
+  }
