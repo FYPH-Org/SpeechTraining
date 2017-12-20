@@ -41,7 +41,10 @@ class Navigation extends Component {
         <Navbar.Header>
           <Navbar.Brand className="navbar-custom-color">
             {/* <Link to="/">Speech Trainer</Link> */}
-            <img src={logo} height='50'/>   
+            <LinkContainer to={'/'}>
+              <img src={logo} height='50'/>   
+              {/* <NavItem>Sign In</NavItem> */}
+            </LinkContainer>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -50,22 +53,19 @@ class Navigation extends Component {
             <IndexLinkContainer exact to={'/'}>
               <NavItem>Home</NavItem>
             </IndexLinkContainer>
-
-            <LinkContainer to={'/about'}>
-              <NavItem>About</NavItem>
-            </LinkContainer>
-
-            {/* <LinkContainer to={'/signup'}>
-              <NavItem>Sign Up</NavItem>
-            </LinkContainer> */}
-
             <LinkContainer to={'/signin'}>
               <NavItem>Sign In</NavItem>
             </LinkContainer>
 
-            <LinkContainer exact to={'/'} className='logout'>
+            {/* <LinkContainer exact to={'/'} className='logout'>
               <NavItem onClick={() => this.handleLogout()} className='test'>Logout</NavItem>
-            </LinkContainer>
+            </LinkContainer> */}
+
+            {/* <LinkContainer to={'/signin'}>
+              <p>
+                <NavItem className='btn btn-primary signin'>Sign In</NavItem>
+              </p>
+            </LinkContainer> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

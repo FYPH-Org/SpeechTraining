@@ -46,6 +46,7 @@
 .login-container-register {
   background: rgba(200, 200, 200, 0.7);
   margin-bottom: 0px;
+  /* max-width: 500px; */
 }
 
 .signup-main {
