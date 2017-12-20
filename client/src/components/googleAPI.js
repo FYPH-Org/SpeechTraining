@@ -122,13 +122,13 @@ class Demo extends Component {
         {/* {this.loggedIn()} */}
         <div className='background'>
           <button className='btn btn-primary' ref="btn" onClick={this.listen}>Talk</button>
-          <p>{this.state.text}</p>
+          <p className='text'>{this.state.text}</p>
           <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
-          <p>{this.state.sentimentScore}</p>
-          <p>{this.state.sentimentMagnitude}</p>
-          <p>{this.state.newScore}</p>
+          <p className='text'>{this.state.sentimentScore}</p>
+          <p className='textmag'>{this.state.sentimentMagnitude}</p>
+          <p className='textscore'>{this.state.newScore}</p>
           <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
-          <p>{this.state.newTest}</p>
+          <p className='textgrammar'>{this.state.newTest}</p>
           <hr />
         </div>
         {this.renderTable()}
