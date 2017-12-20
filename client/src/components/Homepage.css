@@ -20,16 +20,25 @@
   background: rgba(200, 200, 200, 0.7);
   background: transparent;
   padding-top: 0px;
+  
 }
 .main-quote {
-  background-color:#000000;
+  /* background: rgba(14, 2, 2, 0.7); */
+  /* background: transparent; */
+  /* opacity: .2; */
   display:inline;
-  line-height: 2em;
+  text-align: center;
+  margin-top: 50px;
+  /* background: rgba(12, 10, 10, 0.2); */
+  line-height: 1em;
+  /* border-radius: 20px; */
 }
 .quote {
-  background-color: #000000;
+  /* background: rgba(12, 10, 10, 0.2); */
   display: inline;
   line-height: 2em;
+  /* padding-top: 20px; */
+  /* border-radius: 20px; */
 }
 .input-format-register {
   margin-bottom: 1em;
@@ -49,12 +58,14 @@
   /* background-size: cover; */
   margin: 0px;
   min-height: 95vh;
+  
 }
 
 .flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .about-main-title {
@@ -64,6 +75,7 @@
   font-size: 32px;
   background-color: black;
   border: 2px solid white;
+  
 }
 
 .main-container {
@@ -73,6 +85,7 @@
   max-height: 100%;
   border: 1px solid black;
   box-sizing: border-box;
+  
 }
 .left-container {
   flex: 2 50%;
