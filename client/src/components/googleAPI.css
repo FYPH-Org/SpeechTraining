@@ -2,5 +2,39 @@
   
   background: url('./img/mic.jpeg') no-repeat center center;
   background-size: cover;
+  padding-top: 25px;
   
+}
+
+.text {
+
+  color: rgb(255, 255, 255);
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 25px 0px 25px 0px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.textgrammar {
+
+  padding-top: 0px;
+}
+
+.textmag {
+
+  color: rgb(255, 255, 255);
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.textscore{
+
+  color: rgb(255, 255, 255);
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
