@@ -1,8 +1,9 @@
 .background {
   
-  background: url('./img/mic.jpeg') no-repeat center center;
+  background: url('./img/mic-right.png') no-repeat center center;
   background-size: cover;
   padding-top: 25px;
+  min-height: 95vh;
   
 }
 
@@ -44,4 +45,20 @@
   padding: 8px 18px;
   font-size: 20px;
   border-radius: 10px;
+}
+
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.btn-primary:active {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  background-color: #337ab7;
+  border-color: #2e6da4;
 }
