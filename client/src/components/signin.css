@@ -10,3 +10,9 @@
 .signinButton {
   margin-top: 5px;
 }
+
+.App {
+
+  background: url('./img/mic.jpeg') no-repeat center center;
+  background-size: cover;
+}
