@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Table from './Table';
-
+import './googleAPI.css';
 const logger = console;
 
 const axios = require('axios');
@@ -120,7 +120,7 @@ class Demo extends Component {
     return (
       <div>
         {/* {this.loggedIn()} */}
-        <div>
+        <div className='background'>
           <button className='btn btn-primary' ref="btn" onClick={this.listen}>Talk</button>
           <p>{this.state.text}</p>
           <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>

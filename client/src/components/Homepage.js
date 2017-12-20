@@ -55,11 +55,12 @@ class Homepage extends Component {
           <Row>
             <Col md={7}>
               <div className='jumbotron desc-register'>
-                <h1 className='main-quote'>Introducing Speech Trainer!</h1>
+                <h1 className='main-quote'>Introducing <br />Speech Trainer</h1>
                 <br />
-                <h2 className='quote'>
+                <br />
+                <h3 className='quote'>
                   Helping you take your grammar a notch above
-                </h2>
+                </h3>
               </div>
             </Col>
             <Col md={4}>
@@ -96,6 +97,14 @@ class Homepage extends Component {
             </Col>
           </Row>
         </div>
+        <div>
+        <h4 className='text-center'>
+        <a href="https://www.google.com/chrome/">Please use Google Chrome <br /> as your browser</a>
+        {/* <script>
+javascript:location.href="googlechrome"+location.href.substring(4);
+</script> */}
+          </h4>
+          </div>
         </div>
       //   <div className='block'>
       //   </div>
