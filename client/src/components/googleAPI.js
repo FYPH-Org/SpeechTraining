@@ -6,10 +6,14 @@ const logger = console;
 
 const axios = require('axios');
 const { getScore } = require('./helpers/helper');
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
-recognition.lang = 'en-US';
-recognition.interimResults = false;
+// const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+var recognition;
+// if (!SpeechRecognition === null) {
+//   recognition = new SpeechRecognition();
+//   recognition.lang = 'en-US';
+//   recognition.interimResults = false;
+// }
+
 
 class Demo extends Component {
   constructor(props) {
@@ -30,6 +34,12 @@ class Demo extends Component {
   }
 
   componentDidMount() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+    if (SpeechRecognition) {
+      recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+    }
     if (sessionStorage.getItem('username')) {
       this.setState({ isLoggedIn: true });
     }
@@ -144,7 +154,7 @@ class Demo extends Component {
               <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
               <button className='btn btn-primary' onClick={this.clear}>clear</button>
             </ButtonToolbar>
-            <div class='clearfix'></div>
+            <div className='clearfix'></div>
             <p className='text'>{this.state.sentimentScore}</p>
             <p className='textmag'>{this.state.sentimentMagnitude}</p>
             <p className='textscore'>{this.state.newScore}</p>
