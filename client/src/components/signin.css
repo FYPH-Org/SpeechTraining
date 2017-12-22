@@ -3,7 +3,7 @@
 
   background: #0a12b5;
   height: 95vh;
-  background:linear-gradient(#0a12b5, black); 
+  background:repeating-linear-gradient(#0a12b5, black); 
 }
 
 .signIn-container{
