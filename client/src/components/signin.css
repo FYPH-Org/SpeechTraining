@@ -1,14 +1,17 @@
-.signinMain {
-  text-align: center;
-  font-family: Arial Black;
-  background-color: white;
-  margin: 15vh 10vh;
-  padding: 10% 10%;
-  border: 1px solid black;
+
+.signIn-background{
+
+  background: #0a12b5;
+  height: 95vh;
+  background:linear-gradient(#0a12b5, black); 
 }
 
-.signinButton {
-  margin-top: 5px;
+.signIn-container{
+
+  margin-top: 10%;
+  max-width: 400px;
+  display: inline-block
+
 }
 
 /* .App {

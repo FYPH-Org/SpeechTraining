@@ -1,4 +1,7 @@
-.navbar { margin-bottom: 0px; }
+.navbar { 
+    margin-bottom: 0px; 
+    border-radius:0px;
+}
 .navbar-brand { width: 230px; }
 
 
