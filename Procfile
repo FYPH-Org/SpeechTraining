@@ -1,1 +1,1 @@
-web: yarn run landing
+web: yarn run start

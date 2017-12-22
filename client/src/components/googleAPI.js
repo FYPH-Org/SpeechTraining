@@ -70,7 +70,7 @@ class Demo extends Component {
 
     event.preventDefault();
     const { text } = this.state;
-    axios.post('http://localhost:4000/api/sentiment', { text }) //retun was missing
+    axios.post('https://speech-training.herokuapp.com/api/sentiment', { text }) //retun was missing
       .then((data) => {
         logger.log('data: ', data.data);
         let { sentimentMagnitude, sentimentScore } = data.data;
@@ -86,7 +86,7 @@ class Demo extends Component {
     let { text } = this.state;
     // text = 'Hello is there';
     // text = 'My mother are a doctor, but my father is a angeneer. I has a gun.';
-    axios.post('http://localhost:4000/api/grammar', { text })
+    axios.post(' https://speech-training.herokuapp.com/api/grammar', { text })
       .then((element) => {
         logger.log('element data: ', element.data);
         const allErrors = element.data.errors;

@@ -29,7 +29,7 @@ class Homepage extends Component {
       .then(user => {
         logger.log('this is the user:', user);
         axios
-          .post('http://localhost:4000/api/register', { username: user.email })
+          .post(' https://speech-training.herokuapp.com/api/register', { username: user.email })
           .then(element => {
             logger.log('element: ', element.data);
           })

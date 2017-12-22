@@ -9,7 +9,7 @@ mongoose.Promise = global.Promise;
 // fix eslint no console
 const logger = console;
 const corsOptions = {
-  'origin': 'http://localhost:3000',
+  'origin': true,
   'methods': 'GET, HEAD, PUT, PATCH, POST, DELETE',
   'preflightContinue': true,
   'optionsSuccessStatus': 204,
@@ -28,7 +28,7 @@ app.use(cors(corsOptions));
 
 mongoose.Promise = global.Promise;
 const connect = mongoose.connect(
-  'mongodb://localhost/User',
+  `${process.env.MONGODD_URI}`,
   { useMongoClient: true }
 );
 
