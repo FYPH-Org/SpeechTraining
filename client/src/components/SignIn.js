@@ -22,7 +22,8 @@ class SignIn extends Component {
     this.signIn = this.signIn.bind(this);
   }
 
-  signIn() {
+  signIn(event) {
+    event.preventDefault();
     logger.log('this.state', this.state);
     const { email, password } = this.state;
     firebaseApp.auth().signInWithEmailAndPassword(email, password)
