@@ -1,7 +1,4 @@
-PORT=4000
-TEXTGEARS_KEY=SLWs2uA5eFKaj3e6
-MONGODD_URI=mongodb://elyalamillo:elyalamillo@ds163806.mlab.com:63806/speech-trainer
-GOOGLE={
+{
   "type": "service_account",
   "project_id": "speechtraining-188021",
   "private_key_id": "9212c9578ea543f827fd3e780e4daccb525524eb",

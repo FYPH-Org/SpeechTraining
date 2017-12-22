@@ -28,7 +28,7 @@ app.use(cors(corsOptions));
 
 mongoose.Promise = global.Promise;
 const connect = mongoose.connect(
-  `${process.env.MONGODD_URI}`,
+  process.env.MONGODD_URI,
   { useMongoClient: true }
 );
 

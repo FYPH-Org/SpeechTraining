@@ -7,7 +7,6 @@ const textgears = require('textgears');
 const client = new language.LanguageServiceClient({
   keyFilename: './google.json',
 });
-
 const SERVER_USER_ERROR = 422;
 //test comment
 // helper function to send errors
