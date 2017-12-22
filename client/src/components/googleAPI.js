@@ -136,10 +136,10 @@ class Demo extends Component {
       <div>
         {/* {this.loggedIn()} */}
         <div className='background'>
-          <h1>Speech Trainer</h1>
+          {/* <h1>Speech Trainer</h1> */}
           <div className='container'>
             <div className="form-group">
-              <label className='pull-left'>Press talk button to say text, or copy text into the field</label>
+              <label className='pull-left'>Press talk and speak to record text, or enter text into the field</label>
               <textarea 
                 className="form-control"
                 rows="10"

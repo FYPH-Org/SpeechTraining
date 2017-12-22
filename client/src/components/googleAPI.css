@@ -14,7 +14,7 @@
   font-size: 20px;
   font-weight: bold;
   padding: 25px 0px 25px 0px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .textgrammar {
@@ -61,4 +61,14 @@
 .btn-primary.focus, .btn-primary:focus {
   background-color: #337ab7;
   border-color: #2e6da4;
+}
+
+.pull-left {
+  color: white;
+  background-color: black;
+  border-radius: 4px;
+}
+
+h1 {
+  color: white
 }

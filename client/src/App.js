@@ -23,7 +23,9 @@ class App extends Component {
           <Route path='/about' component={About} />
           <Route path='/listen' component={googleAPI} />
         </div>
+        <div>
         <Footer />
+        </div>
       </div>
     );
   }
