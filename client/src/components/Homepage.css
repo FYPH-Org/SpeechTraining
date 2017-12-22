@@ -133,6 +133,9 @@
   background-size: cover;
   height: 100%;
 }
+.about-func-row {
+  padding-left: 0px;
+}
 .about-funct-des-container {
   padding-top: 4%;
   height: 100%;
