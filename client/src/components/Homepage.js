@@ -53,7 +53,7 @@ class Homepage extends Component {
       <div>
         <div className='auth-form-register'>
           <div className='container-fluid container-auth-register'>
-            <Row>
+            <Row className='text-center'>
               <Col md={7}>
                 <div className='jumbotron desc-register'>
                   <h1 className='main-quote'>Introducing <br />Speech Trainer</h1>
@@ -87,7 +87,9 @@ class Homepage extends Component {
                         className='input-format-register'
                       />
                       <div>{this.state.error.message}</div>
-                      <button className='btn btn-success' type='submit'> Register </button>
+                      <div className='text-right'>
+                        <button className='btn btn-success' type='submit'> Register </button>
+                      </div>
                       <h4 className='text-center'>
                       If you already have an acount you can
                         <Link to='/signin' className='redirect-register'> Sign In</Link> here.
