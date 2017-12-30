@@ -90,6 +90,7 @@
 ==================================================*/
 .about-intro {
   background-color: whitesmoke;
+  padding: 5% 5%;
 }
 .about-func-row {
   height: 50vh; 
@@ -113,6 +114,7 @@
   font-size: 16px;
   font-weight: 300;
   line-height: 1.4;
+  text-align: justify;
 }
 
 
@@ -153,6 +155,9 @@
       }
       .about-funct-des-container {
         padding-top: 4%;
+      }
+      .lead-custom {
+        font-size: 24px;
       }
     }
 

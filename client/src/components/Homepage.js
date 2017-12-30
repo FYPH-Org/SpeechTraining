@@ -88,7 +88,7 @@ class Homepage extends Component {
                       />
                       <div>{this.state.error.message}</div>
                       <div className='text-right'>
-                        <button className='btn btn-success' type='submit'> Register </button>
+                        <button className='btn btn-success btn-sm' type='submit'> Register </button>
                       </div>
                       <h4 className='text-center'>
                       If you already have an acount you can
@@ -110,7 +110,8 @@ class Homepage extends Component {
           <div className='container-fluid about-intro'>
             <div className='container'>
               <h2>Welcome to Speech Trainer</h2>
-              <p className='lead'>
+              <hr />
+              <p className='lead lead-custom'>
               Have confidence and make a good impression whenever you want,
               and wherever you are with Speech Training.  With the help of the 
               Speech Training app you can learn English in a better and more 
@@ -126,6 +127,7 @@ class Homepage extends Component {
                 <div className="container-fluid">
                   <div className="about-func-desc">
                     <h2>What it Does</h2>
+                    <hr />
                     <p className='lead-custom'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel dolore odit quod deserunt nulla consequuntur sint, aspernatur ut reprehenderit natus, tempora perspiciatis! Alias iste blanditiis eaque similique facilis! Omnis?</p>
                   </div>
                 </div>
