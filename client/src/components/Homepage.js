@@ -118,12 +118,14 @@ class Homepage extends Component {
             </div>
           </div>
           <div className='about-func container-fluid'>
-            <div className="row about-func-row container-fluid">
-              <div className="col-xs-4 side-image"></div>
-              <div className="col-xs-8 about-funct-des-container">
-                <div className="about-func-desc">
-                  <h2>What it Does</h2>
-                  <p className='lead'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel dolore odit quod deserunt nulla consequuntur sint, aspernatur ut reprehenderit natus, tempora perspiciatis! Alias iste blanditiis eaque similique facilis! Omnis?</p>
+            <div className="row about-func-row">
+              <div className="col-sm-4 side-image"></div>
+              <div className="col-sm-8 about-funct-des-container">
+                <div className="container-fluid">
+                  <div className="about-func-desc">
+                    <h2>What it Does</h2>
+                    <p className='lead-custom'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel dolore odit quod deserunt nulla consequuntur sint, aspernatur ut reprehenderit natus, tempora perspiciatis! Alias iste blanditiis eaque similique facilis! Omnis?</p>
+                  </div>
                 </div>
               </div>
             </div>

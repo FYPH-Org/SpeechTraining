@@ -9,7 +9,10 @@
   text-align: left;
   background: url('./img/mic.jpeg') no-repeat center center;
   background-size: cover;
-  height: 95vh;
+  /* fixes overflow of form to next section */
+  min-height: 95vh;
+  /* fixes wierd spacing after adding min-height  */
+  border: 0.1px solid transparent;
 }
 .container-auth-register {
   /*padding-top: 2em;
@@ -42,7 +45,9 @@
 .login-container-register {
   background: rgba(200, 200, 200, 0.7);
   margin-bottom: 0px;
-  /* max-width: 500px; */
+  /* max-width: 400px; */
+  max-width: 500px;
+  /* min-width: 400px; */
 }
 
 .signup-main {
@@ -131,21 +136,32 @@
 .side-image {
   background: url('./img/mic2.jpeg') no-repeat center center;
   background-size: cover;
-  height: 100%;
+  height: 25vh;
 }
 .about-func-row {
   padding-left: 0px;
+  background-color: #27292B;
 }
 .about-funct-des-container {
-  padding-top: 4%;
-  height: 100%;
+  color: white;
+  background-color: #27292B;
+  /* commented out. fixes stacking extra height */
+  /* height: 100%; */
+}
+.lead-custom {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
 }
 
+
+/*==================================================
+=                      Footer                      =
+==================================================*/
 .footer {
   font-size: 125px;
   text-align: center;
   color: white;
-
 }
 
 
@@ -170,6 +186,12 @@
     @media only screen and (min-width : 768px) {
       .text-danger, .text-success {
         font-size: 18px;
+      }
+      .side-image {
+        height: 100%;
+      }
+      .about-funct-des-container {
+        padding-top: 4%;
       }
     }
 
