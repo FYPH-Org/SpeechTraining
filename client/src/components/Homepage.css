@@ -116,6 +116,12 @@
   line-height: 1.4;
   text-align: justify;
 }
+.hr-white {
+  border-top: 4px solid #eee;
+}
+.hr-black {
+  border-top: 4px solid black;
+}
 
 
 /*==================================================

@@ -108,9 +108,9 @@ class Homepage extends Component {
         </div>
         <div className='about-section'>
           <div className='container-fluid about-intro'>
-            <div className='container'>
+            <div className='container '>
               <h2>Welcome to Speech Trainer</h2>
-              <hr />
+              <hr className='hr-black' />
               <p className='lead lead-custom'>
               Have confidence and make a good impression whenever you want,
               and wherever you are with Speech Training.  With the help of the 
@@ -127,7 +127,7 @@ class Homepage extends Component {
                 <div className="container-fluid">
                   <div className="about-func-desc">
                     <h2>What it Does</h2>
-                    <hr />
+                    <hr className='hr-white'/>
                     <p className='lead-custom'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel dolore odit quod deserunt nulla consequuntur sint, aspernatur ut reprehenderit natus, tempora perspiciatis! Alias iste blanditiis eaque similique facilis! Omnis?</p>
                   </div>
                 </div>
