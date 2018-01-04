@@ -22,7 +22,7 @@ class App extends Component {
           <Route path='/signup' component={SignUp} />
           <Route path='/about' component={About} />
           <Route path='/listen' component={googleAPI} />
-          {/* <Footer /> */}
+          <Footer />
         </div>
         {/* <Footer /> */}
       </div>

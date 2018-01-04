@@ -53,7 +53,7 @@ class Homepage extends Component {
       <div>
         <div className='auth-form-register'>
           <div className='container-fluid container-auth-register'>
-            <Row>
+            <Row className='text-center'>
               <Col md={7}>
                 <div className='jumbotron desc-register'>
                   <h1 className='main-quote'>Introducing <br />Speech Trainer</h1>
@@ -87,7 +87,9 @@ class Homepage extends Component {
                         className='input-format-register'
                       />
                       <div>{this.state.error.message}</div>
-                      <button className='btn btn-success' type='submit'> Register </button>
+                      <div className='text-right'>
+                        <button className='btn btn-success btn-sm' type='submit'> Register </button>
+                      </div>
                       <h4 className='text-center'>
                       If you already have an acount you can
                         <Link to='/signin' className='redirect-register'> Sign In</Link> here.
@@ -106,9 +108,10 @@ class Homepage extends Component {
         </div>
         <div className='about-section'>
           <div className='container-fluid about-intro'>
-            <div className='container'>
+            <div className='container '>
               <h2>Welcome to Speech Trainer</h2>
-              <p className='lead'>
+              <hr className='hr-black' />
+              <p className='lead lead-custom'>
               Have confidence and make a good impression whenever you want,
               and wherever you are with Speech Training.  With the help of the 
               Speech Training app you can learn English in a better and more 
@@ -118,12 +121,15 @@ class Homepage extends Component {
             </div>
           </div>
           <div className='about-func container-fluid'>
-            <div className="row about-func-row container-fluid">
-              <div className="col-xs-4 side-image"></div>
-              <div className="col-xs-8 about-funct-des-container">
-                <div className="about-func-desc">
-                  <h2>What it Does</h2>
-                  <p className='lead'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel dolore odit quod deserunt nulla consequuntur sint, aspernatur ut reprehenderit natus, tempora perspiciatis! Alias iste blanditiis eaque similique facilis! Omnis?</p>
+            <div className="row about-func-row">
+              <div className="col-sm-4 side-image"></div>
+              <div className="col-sm-8 about-funct-des-container">
+                <div className="container-fluid">
+                  <div className="about-func-desc">
+                    <h2>What it Does</h2>
+                    <hr className='hr-white'/>
+                    <p className='lead-custom'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel dolore odit quod deserunt nulla consequuntur sint, aspernatur ut reprehenderit natus, tempora perspiciatis! Alias iste blanditiis eaque similique facilis! Omnis?</p>
+                  </div>
                 </div>
               </div>
             </div>

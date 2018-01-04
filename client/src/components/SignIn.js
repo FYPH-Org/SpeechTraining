@@ -46,7 +46,7 @@ class SignIn extends Component {
       <div className='signIn-background'>
         <div className='container'>
           <div className='jumbotron login-container-register signIn-container text-center'>
-            <form onSubmit={this.signIn} className='signIn-main'>
+            <form onSubmit={this.signIn} className='signup-main'>
               <FormGroup>
                 <ControlLabel>Email</ControlLabel>
                 <FormControl
@@ -67,7 +67,9 @@ class SignIn extends Component {
                   className='input-format-register'
                 />
                 <div>{this.state.error.message}</div>
-                <button className='btn btn-success' type='submit'> Sign In </button>
+                <div className="text-right">
+                  <button className='btn btn-success' type='submit'> Sign In </button>
+                </div>
                 <h4 className='text-center'>
             If you don't already have an acount you can
                   <Link to='/' className='redirect-register'> Register</Link> here.
