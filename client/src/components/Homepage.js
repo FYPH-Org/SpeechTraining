@@ -50,7 +50,7 @@ class Homepage extends Component {
   render() {
     return (
       // <div className='block'>
-      <div>
+      <div className=''>
         <div className='auth-form-register'>
           <div className='container-fluid container-auth-register'>
             <Row className='text-center'>
