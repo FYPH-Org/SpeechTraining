@@ -106,30 +106,29 @@ class Homepage extends Component {
             </h4>
           </div>
         </div>
-        <div className='about-section'>
-          <div className='container-fluid about-intro'>
-            <div className='container '>
-              <h2>Welcome to Speech Trainer</h2>
-              <hr className='hr-black' />
-              <p className='lead lead-custom'>
+        <div className='about-section'></div>
+        <div className='container-fluid about-intro'>
+          <div className='container '>
+            <h2>Welcome to Speech Trainer</h2>
+            <hr className='hr-black' />
+            <p className='lead lead-custom'>
               Have confidence and make a good impression whenever you want,
               and wherever you are with Speech Training.  With the help of the 
               Speech Training app you can learn English in a better and more 
               effective way. You can enhance your English with correct grammar 
               and positive sentiments.
-              </p>
-            </div>
+            </p>
           </div>
-          <div className='about-func container-fluid'>
-            <div className="row about-func-row">
-              <div className="col-sm-4 side-image"></div>
-              <div className="col-sm-8 about-funct-des-container">
-                <div className="container-fluid">
-                  <div className="about-func-desc">
-                    <h2>What it Does</h2>
-                    <hr className='hr-white'/>
-                    <p className='lead-custom'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel dolore odit quod deserunt nulla consequuntur sint, aspernatur ut reprehenderit natus, tempora perspiciatis! Alias iste blanditiis eaque similique facilis! Omnis?</p>
-                  </div>
+        </div>
+        <div className='about-func container-fluid'>
+          <div className="row about-func-row">
+            <div className="col-sm-4 side-image"></div>
+            <div className="col-sm-8 about-funct-des-container">
+              <div className="container-fluid">
+                <div className="about-func-desc">
+                  <h2>What it Does</h2>
+                  <hr className='hr-white'/>
+                  <p className='lead-custom'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel dolore odit quod deserunt nulla consequuntur sint, aspernatur ut reprehenderit natus, tempora perspiciatis! Alias iste blanditiis eaque similique facilis! Omnis?</p>
                 </div>
               </div>
             </div>
