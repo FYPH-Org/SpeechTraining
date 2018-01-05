@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.changes {
+  font-size: 2em;
+}
+
 /*==================================================
 =            Bootstrap 3 Media Queries             =
 ==================================================*/
@@ -23,6 +27,9 @@
     @media only screen and (min-width : 768px) {
       .text-danger, .text-success {
         font-size: 18px;
+      }
+      .changes {
+        font-size: 36px;
       }
     }
 
