@@ -4,7 +4,9 @@ import './Table.css';
 const Table = props => {
   return (
     <div className='container'>
-      <h1> Suggested Changes </h1>
+      <div className="text-left">
+        <h1 className='changes'> Suggested Changes </h1>
+      </div>
       <table className="table table-bordered table-hover">
         <tbody>
           {props.errors.map(element => {
