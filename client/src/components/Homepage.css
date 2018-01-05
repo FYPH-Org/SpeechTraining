@@ -103,6 +103,7 @@
 .about-func-row {
   padding-left: 0px;
   background-color: #27292B;
+  height: auto;
 }
 .about-funct-des-container {
   color: white;
