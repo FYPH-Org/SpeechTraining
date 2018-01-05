@@ -150,9 +150,9 @@ class Demo extends Component {
             </div>
             <ButtonToolbar className='pull-right'>
               <button className='btn btn-primary' ref="btn" onClick={this.listen}>Talk</button>
-              <button className='btn btn-primary' onClick={this.analyze}>Analyze</button>
-              <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
+              {/* <button className='btn btn-primary' onClick={this.analyze}>Analyze</button> */}
               <button className='btn btn-primary' onClick={this.clear}>clear</button>
+              <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
             </ButtonToolbar>
             <div className='clearfix'></div>
             <p className='text'>{this.state.sentimentScore}</p>
