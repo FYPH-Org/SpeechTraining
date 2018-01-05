@@ -106,7 +106,7 @@ class Homepage extends Component {
             </h4>
           </div>
         </div>
-        <div className='about-section'>
+        <div className='about-section'></div>
           <div className='container-fluid about-intro'>
             <div className='container '>
               <h2>Welcome to Speech Trainer</h2>
