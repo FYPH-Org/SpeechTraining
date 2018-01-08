@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { firebaseApp } from '../firebase';
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
-import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import logo from './speechtrainer.png';
 import './Navigation.css';
