@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { firebaseApp } from '../firebase';
-import axios from 'axios';
-import { FormControl, FormGroup, ControlLabel, Row, Col } from 'react-bootstrap';
+import { FormControl, FormGroup, ControlLabel } from 'react-bootstrap';
+import Navigation from './Navigation';
 
 import './signin.css';
 // styles
@@ -44,6 +44,7 @@ class SignIn extends Component {
   render() {
     return (
       <div className='signIn-background'>
+        <Navigation />
         <div className='container'>
           <div className='jumbotron login-container-register signIn-container text-center'>
             <form onSubmit={this.signIn} className='signup-main'>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { firebaseApp } from '../firebase';
-import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import logo from './speechtrainer.png';
 import './Navigation.css';
 
 const logger = console;
 
-class Navigation extends Component {
+class NavigationListen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,22 +49,9 @@ class Navigation extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight className='logout'>
-            <IndexLinkContainer exact to={'/'}>
-              <NavItem>Home</NavItem>
-            </IndexLinkContainer>
-            <LinkContainer to={'/signin'}>
-              <NavItem>Sign In</NavItem>
+            <LinkContainer exact to={'/'}>
+              <NavItem onClick={() => this.handleLogout()} className='test'>Logout</NavItem> 
             </LinkContainer>
-
-            {/* <LinkContainer exact to={'/'} className='logout'>
-              <NavItem onClick={() => this.handleLogout()} className='test'>Logout</NavItem>
-            </LinkContainer> */}
-
-            {/* <LinkContainer to={'/signin'}>
-              <p>
-                <NavItem className='btn btn-primary signin'>Sign In</NavItem>
-              </p>
-            </LinkContainer> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -72,4 +59,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+export default NavigationListen;

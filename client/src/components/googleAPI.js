@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import Table from './Table';
 import { ButtonToolbar } from 'react-bootstrap';
 import './googleAPI.css';
+import NavigationListen from './NavigationListen';
 const logger = console;
 
 const axios = require('axios');
 const { getScore } = require('./helpers/helper');
-// const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
 var recognition;
-// if (!SpeechRecognition === null) {
-//   recognition = new SpeechRecognition();
-//   recognition.lang = 'en-US';
-//   recognition.interimResults = false;
-// }
+
 
 
 class Demo extends Component {
@@ -134,7 +130,7 @@ class Demo extends Component {
   render() {
     return (
       <div>
-        {/* {this.loggedIn()} */}
+        <NavigationListen />
         <div className='background'>
           {/* <h1>Speech Trainer</h1> */}
           <div className='container'>
@@ -149,7 +145,7 @@ class Demo extends Component {
               </textarea>
             </div>
             <ButtonToolbar className='pull-right'>
-              <button className='btn btn-primary' ref="btn" onClick={this.listen}>Talk</button>
+              <button className='btn btn-success' ref="btn" onClick={this.listen}>Talk</button>
               {/* <button className='btn btn-primary' onClick={this.analyze}>Analyze</button> */}
               <button className='btn btn-primary' onClick={this.clear}>clear</button>
               <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
