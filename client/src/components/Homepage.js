@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { firebaseApp } from '../firebase';
 import axios from 'axios';
 import { FormControl, FormGroup, ControlLabel, Row, Col } from 'react-bootstrap';
+import Navigation from './Navigation';
 import './Homepage.css';
 
 const logger = console;
@@ -51,6 +52,7 @@ class Homepage extends Component {
     return (
       // <div className='block'>
       <div className=''>
+        <Navigation />
         <div className='auth-form-register'>
           <div className='container-fluid container-auth-register'>
             <Row className='text-center'>
@@ -108,7 +110,7 @@ class Homepage extends Component {
         </div>
         <div className='about-section'>
           <div className='container-fluid about-intro'>
-            <div className='container '>
+            <div>
               <h2>Welcome to Speech Trainer</h2>
               <hr className='hr-black' />
               <p className='lead lead-custom'>
