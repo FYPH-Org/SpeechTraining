@@ -130,7 +130,11 @@ class Homepage extends Component {
                   <div className="about-func-desc">
                     <h2>What it Does</h2>
                     <hr className='hr-white'/>
-                    <p className='lead-custom'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vel dolore odit quod deserunt nulla consequuntur sint, aspernatur ut reprehenderit natus, tempora perspiciatis! Alias iste blanditiis eaque similique facilis! Omnis?</p>
+                    <p className='lead-custom'>
+                      The Speech Training app converts the
+                      speech of the user to text and analyzes the confidence, sentiment,
+                      and shows various options to correct the grammatical mistakes.
+                    </p>
                   </div>
                 </div>
               </div>
