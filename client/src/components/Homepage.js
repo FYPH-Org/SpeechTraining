@@ -132,8 +132,8 @@ class Homepage extends Component {
                     <hr className='hr-white'/>
                     <p className='lead-custom'>
                       The Speech Training app converts the
-                      speech of the user to text and analyzes the confidence, sentiment,
-                      and shows various options to correct the grammatical mistakes.
+                      speech of the user to text and analyzes confidence, sentiment,
+                      and provides various options to correct identified grammatical mistakes.
                     </p>
                   </div>
                 </div>
