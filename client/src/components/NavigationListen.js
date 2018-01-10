@@ -41,7 +41,7 @@ class NavigationListen extends Component {
           <Navbar.Brand className="navbar-custom-color">
             {/* <Link to="/">Speech Trainer</Link> */}
             <LinkContainer to={'/'}>
-              <img src={logo} height='50'/>   
+              <img src={logo} height='50' alt='logo'/>   
               {/* <NavItem>Sign In</NavItem> */}
             </LinkContainer>
           </Navbar.Brand>

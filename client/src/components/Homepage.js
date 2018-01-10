@@ -22,17 +22,15 @@ class Homepage extends Component {
 
   signUp(event) {
     event.preventDefault();
-    logger.log('this.state', this.state);
     const { email, password } = this.state;
     firebaseApp
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(user => {
-        logger.log('this is the user:', user);
         axios
           .post(' https://speech-training.herokuapp.com/api/register', { username: user.email })
-          .then(element => {
-            logger.log('element: ', element.data);
+          .then(element => { // eslint-disable-line
+            logger.log('user created');
           })
           .catch(err => {
             logger.log('error saving user: ', err);

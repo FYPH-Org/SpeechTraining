@@ -29,7 +29,6 @@ class Navigation extends Component {
 
   componentDidMount() {
     if (sessionStorage.getItem('username')) {
-      logger.log('is logged in true');
       this.setState({ isLoggedIn: true });
     }
   }
@@ -41,7 +40,7 @@ class Navigation extends Component {
           <Navbar.Brand className="navbar-custom-color">
             {/* <Link to="/">Speech Trainer</Link> */}
             <LinkContainer to={'/'}>
-              <img src={logo} height='50'/>   
+              <img src={logo} height='50' alt='logo'/>   
               {/* <NavItem>Sign In</NavItem> */}
             </LinkContainer>
           </Navbar.Brand>

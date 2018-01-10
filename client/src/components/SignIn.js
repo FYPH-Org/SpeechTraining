@@ -5,9 +5,6 @@ import { FormControl, FormGroup, ControlLabel } from 'react-bootstrap';
 import Navigation from './Navigation';
 
 import './signin.css';
-// styles
-
-const logger = console;
 
 class SignIn extends Component {
   constructor(props) {
@@ -24,11 +21,9 @@ class SignIn extends Component {
 
   signIn(event) {
     event.preventDefault();
-    logger.log('this.state', this.state);
     const { email, password } = this.state;
     firebaseApp.auth().signInWithEmailAndPassword(email, password)
       .then((user) => {
-        logger.log('this is the user:', user);
         this.setState({
           email: '',
           password: ''

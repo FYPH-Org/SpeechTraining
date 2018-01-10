@@ -47,7 +47,6 @@ class Demo extends Component {
       this.setState({ text });
     } );
     recognition.addEventListener('speechend', (e) => {
-      logger.log('this is working again', e);
       this.refs.btn.removeAttribute('disabled', 'disabled');
     } );
   }
@@ -56,7 +55,6 @@ class Demo extends Component {
     this.setState({ allErrors: null });
     event.preventDefault();
     recognition.start();
-    logger.log('listening');
     this.refs.btn.setAttribute('disabled', 'disabled');
   }
 
@@ -68,7 +66,6 @@ class Demo extends Component {
     const { text } = this.state;
     axios.post('https://speech-training.herokuapp.com/api/sentiment', { text }) //retun was missing
       .then((data) => {
-        logger.log('data: ', data.data);
         let { sentimentMagnitude, sentimentScore } = data.data;
         const newScore = getScore(sentimentScore);
         this.setState({ sentimentMagnitude, sentimentScore, newScore });
@@ -84,7 +81,6 @@ class Demo extends Component {
     // text = 'My mother are a doctor, but my father is a angeneer. I has a gun.';
     axios.post(' https://speech-training.herokuapp.com/api/grammar', { text })
       .then((element) => {
-        logger.log('element data: ', element.data);
         const allErrors = element.data.errors;
         if (allErrors.length < 1) {
           this.setState({ noErrors: true, allErrors: null });
@@ -102,7 +98,6 @@ class Demo extends Component {
   }
 
   renderTable() {
-    logger.log('inside render table: ', this.state.allErrors);
     return (
       this.state.allErrors &&
       <Table errors={this.state.allErrors} />
