@@ -35,7 +35,15 @@ const connect = mongoose.connect(
 connect.then(() => {
   const { routes } = require('./api/routes/routes');
   routes(app);
+  app.get('*', (req, res) => {
+    res.redirect('/');
+  });
+  /*
+  catch all for undefined routes, handles client side routing issue on
+  trying to access pages directly
+  */
   app.listen(process.env.PORT);
+  
   logger.log(`Server listening on port ${process.env.PORT}`);
 }, (err) => { // eslint-disable-line
   logger.log('\n**********************');
