@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { firebaseApp } from '../firebase';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
-import logo from './speechtrainer.png';
+// import logo from './speechtrainer.png';
+import logo from './whitelogo.png';
 import './Navigation.css';
 
 const logger = console;
