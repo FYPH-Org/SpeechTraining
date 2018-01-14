@@ -4,6 +4,7 @@ import { firebaseApp } from '../firebase';
 import axios from 'axios';
 import { FormControl, FormGroup, ControlLabel, Row, Col } from 'react-bootstrap';
 import Navigation from './Navigation';
+import logo from './largelogo.png';
 import './Homepage.css';
 
 const logger = console;
@@ -56,7 +57,12 @@ class Homepage extends Component {
             <Row className='text-center'>
               <Col md={7}>
                 <div className='jumbotron desc-register'>
-                  <h1 className='main-quote'>Introducing <br />Speech Trainer</h1>
+                  <h1 className='main-quote'>
+                    Introducing <br />
+                    {/* Speech Trainer */}
+                  </h1>
+                  <br />
+                  <img src={logo} className='home-logo' alt='logo'/> 
                   <br />
                   <br />
                   <h3 className='quote'>
