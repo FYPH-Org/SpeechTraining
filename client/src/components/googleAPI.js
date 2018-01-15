@@ -46,7 +46,7 @@ class Demo extends Component {
       // logger.log('Confidence: ' + e.results[0][0].confidence);
       this.setState({ text });
     } );
-    recognition.addEventListener('speechend', (e) => {
+    recognition.addEventListener('speechend', () => {
       this.refs.btn.removeAttribute('disabled', 'disabled');
     } );
   }
@@ -105,10 +105,14 @@ class Demo extends Component {
   }
 
   loggedIn() {
+    // if (this.state.isLoggedIn) {
+    //   return <h1>You are logged in</h1>;
+    // }
+    // return <h1>Please log in</h1>;
     if (this.state.isLoggedIn) {
-      return <h1>You are logged in</h1>;
+      return true;
     }
-    return <h1>Please log in</h1>;
+    return false;
   }
 
   noErrors() {
@@ -126,8 +130,7 @@ class Demo extends Component {
     return (
       <div>
         <NavigationListen />
-        <div className='background'>
-          {/* <h1>Speech Trainer</h1> */}
+        {this.loggedIn() ? <div className='background'>
           <div className='container'>
             <div className="form-group">
               <label className='pull-left'>Press talk and speak to record text, or enter text into the field</label>
@@ -141,7 +144,6 @@ class Demo extends Component {
             </div>
             <ButtonToolbar className='pull-right'>
               <button className='btn btn-success' ref="btn" onClick={this.listen}>Talk</button>
-              {/* <button className='btn btn-primary' onClick={this.analyze}>Analyze</button> */}
               <button className='btn btn-primary' onClick={this.clear}>clear</button>
               <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
             </ButtonToolbar>
@@ -160,7 +162,40 @@ class Demo extends Component {
               only your text, but the impression you make on others!
             </p>
           </div>
-        </div>
+        </div> : this.props.history.push('/')}
+        {/* <div className='background'>
+          <div className='container'>
+            <div className="form-group">
+              <label className='pull-left'>Press talk and speak to record text, or enter text into the field</label>
+              <textarea 
+                className="form-control"
+                rows="10"
+                value={this.state.text}
+                onChange={this.handleChange}
+              >
+              </textarea>
+            </div>
+            <ButtonToolbar className='pull-right'>
+              <button className='btn btn-success' ref="btn" onClick={this.listen}>Talk</button>
+              <button className='btn btn-primary' onClick={this.clear}>clear</button>
+              <button className='btn btn-primary' onClick={this.grammar}>Grammar</button>
+            </ButtonToolbar>
+            <div className='clearfix'></div>
+            <p className='text'>{this.state.sentimentScore}</p>
+            <p className='textmag'>{this.state.sentimentMagnitude}</p>
+            <p className='textscore'>{this.state.newScore}</p>
+            <p className='textgrammar'>{this.state.newTest}</p>
+            <hr />
+            {this.renderTable()}
+            {this.noErrors()}
+            <p className='text-muted'>
+              The smart English grammar checker finds and corrects mistakes or wrong word usage in your
+              text. The impression you make on people depends not only on what you write, but also on
+              how correct your writing is. Write correct English grammar with TextGears and improve not
+              only your text, but the impression you make on others!
+            </p>
+          </div>
+        </div> */}
       </div>
     );
   }
