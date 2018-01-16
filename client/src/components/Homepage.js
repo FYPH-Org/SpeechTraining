@@ -4,6 +4,7 @@ import { firebaseApp } from '../firebase';
 import axios from 'axios';
 import { FormControl, FormGroup, ControlLabel, Row, Col } from 'react-bootstrap';
 import Navigation from './Navigation';
+import logo from './largelogo.png';
 import './Homepage.css';
 
 const logger = console;
@@ -22,17 +23,15 @@ class Homepage extends Component {
 
   signUp(event) {
     event.preventDefault();
-    logger.log('this.state', this.state);
     const { email, password } = this.state;
     firebaseApp
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(user => {
-        logger.log('this is the user:', user);
         axios
           .post(' https://speech-training.herokuapp.com/api/register', { username: user.email })
-          .then(element => {
-            logger.log('element: ', element.data);
+          .then(element => { // eslint-disable-line
+            logger.log('user created');
           })
           .catch(err => {
             logger.log('error saving user: ', err);
@@ -58,7 +57,12 @@ class Homepage extends Component {
             <Row className='text-center'>
               <Col md={7}>
                 <div className='jumbotron desc-register'>
-                  <h1 className='main-quote'>Introducing <br />Speech Trainer</h1>
+                  <h1 className='main-quote'>
+                    Introducing <br />
+                    {/* Speech Trainer */}
+                  </h1>
+                  <br />
+                  <img src={logo} className='home-logo' alt='logo'/> 
                   <br />
                   <br />
                   <h3 className='quote'>
@@ -132,8 +136,8 @@ class Homepage extends Component {
                     <hr className='hr-white'/>
                     <p className='lead-custom'>
                       The Speech Training app converts the
-                      speech of the user to text and analyzes the confidence, sentiment,
-                      and shows various options to correct the grammatical mistakes.
+                      speech of the user to text and analyzes confidence, sentiment,
+                      and provides various options to correct identified grammatical mistakes.
                     </p>
                   </div>
                 </div>

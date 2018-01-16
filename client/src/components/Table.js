@@ -9,17 +9,17 @@ const Table = props => {
       </div>
       <table className="table table-bordered table-hover">
         <tbody>
-          {props.errors.map(element => {
+          {props.errors.map((element, key) => {
             return (
-              <tr>
-                <td className='text-danger'>
+              <tr key={key}>
+                <td className='text-danger' key={key + 1}>
                   {element.bad}
                 </td>
-                <td className='center-table'><i className="fa fa-arrow-right" aria-hidden="true"></i></td>
-                <td>
-                  {element.better.map(suggestion => {
+                <td className='center-table' key={key + 2}><i className="fa fa-arrow-right" aria-hidden="true" key={key}></i></td>
+                <td key={key + 3}>
+                  {element.better.map((suggestion, nKey) => {
                     return (
-                      <span className='text-success'>
+                      <span className='text-success' key={nKey}>
                         {suggestion} <br />
                       </span>
                     );

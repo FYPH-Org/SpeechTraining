@@ -1,3 +1,7 @@
+.home-logo {
+  height: 5vh;
+  width: 106%;
+}
 .block {
   background-color: black;
   background-size: cover;
