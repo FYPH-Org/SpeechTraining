@@ -15,7 +15,7 @@ class Demo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: true,
       text: '',
       sentimentScore: '',
       sentimentMagnitude: '',
@@ -28,7 +28,11 @@ class Demo extends Component {
     this.clear = this.clear.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
+  componentWillMount() {
+    if (sessionStorage.getItem('username')) {
+      this.setState({ isLoggedIn: true });
+    }
+  }
   componentDidMount() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
     if (SpeechRecognition) {
@@ -36,9 +40,9 @@ class Demo extends Component {
       recognition.lang = 'en-US';
       recognition.interimResults = false;
     }
-    if (sessionStorage.getItem('username')) {
-      this.setState({ isLoggedIn: true });
-    }
+    // if (sessionStorage.getItem('username')) {
+    //   this.setState({ isLoggedIn: true });
+    // }
     recognition.addEventListener('result', (e) => {
       let last = e.results.length - 1;
       let text = e.results[last][0].transcript;
@@ -162,7 +166,7 @@ class Demo extends Component {
               only your text, but the impression you make on others!
             </p>
           </div>
-        </div> : this.props.history.push('/')}
+        </div> : <h1>You are not logged in</h1>}
       </div>
     );
   }
