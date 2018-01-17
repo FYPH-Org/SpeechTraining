@@ -32,6 +32,7 @@ class Homepage extends Component {
           .post(' https://speech-training.herokuapp.com/api/register', { username: user.email })
           .then(element => { // eslint-disable-line
             logger.log('user created');
+            sessionStorage.setItem('username', email);
           })
           .catch(err => {
             logger.log('error saving user: ', err);
@@ -39,8 +40,11 @@ class Homepage extends Component {
         this.setState({
           email: '',
           password: ''
+        },()=>{
+          this.props.history.push('/listen');
         });
-        this.props.history.push('/listen');
+
+        //this.props.history.push('/listen');
       })
       .catch(error => {
         this.setState({ error });
